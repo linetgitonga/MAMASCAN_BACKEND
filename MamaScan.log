@@ -1,0 +1,80 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\screening\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\screening\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\screening\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\screening\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\appointments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\analytics\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\appointments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\appointments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3486
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3537
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4174
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+Watching for file changes with StatReloader
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 11779
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\accounts\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\accounts\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 200 16627
+"GET /admin/accounts/user/ HTTP/1.1" 200 19904
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /admin/accounts/user/?o=6 HTTP/1.1" 200 20086
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/?o=-6 HTTP/1.1" 200 20107
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/?o=6 HTTP/1.1" 200 20086
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
