@@ -78,3 +78,527 @@ Watching for file changes with StatReloader
 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 "GET /admin/accounts/user/?o=6 HTTP/1.1" 200 20086
 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 274
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\mpesa\mpesa_services.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\mpesa\mpesa_services.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3797
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3848
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4174
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 16627
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+code 400, message Bad request version ('\x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Szz\x00\x00\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('QKÎÛÊ÷GhÍ')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x03wnÎ\x15\x91\x08©Gª!Çû\x919')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('¨')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('¡\x90')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('yÞ+í¢_NU¼\x84#£0ãÃf')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request syntax ('\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03-ÌÕÜF\x03¸åXP÷¾SFp²¾Rh\x7fÊÃfiG/@3-Ã\x9b3 ')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request syntax ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03xz')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('Hgª³\x03X®ê!\x80ùw\x17\x81FúÔÉúW0')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+"OPTIONS /api/accounts/login/ HTTP/1.1" 200 0
+Not Found: /api/accounts/login/
+"POST /api/accounts/login/ HTTP/1.1" 404 3873
+Not Found: /api/accounts/login/
+"POST /api/accounts/login/ HTTP/1.1" 404 3873
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/screenings/
+"GET /api/screening/screenings/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/screenings/
+"GET /api/screening/screenings/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/screenings/
+Unauthorized: /api/screening/patients/
+"GET /api/screening/screenings/ HTTP/1.1" 401 58
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 58
+"OPTIONS /api/accounts/profile/ HTTP/1.1" 200 0
+Not Found: /api/accounts/profile/
+"GET /api/accounts/profile/ HTTP/1.1" 404 3878
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+Not Found: /api/accounts/profile/
+"GET /api/accounts/profile/ HTTP/1.1" 404 3878
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 140, in post
+    answer = generate_azure_answer(user_query, docs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 120, in generate_azure_answer
+    response = chat_client.chat.completions.create(
+        stream=False,
+    ...<9 lines>...
+        model=CHAT_DEPLOYMENT,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1087, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\_base_client.py", line 1249, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\_base_client.py", line 1037, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'code': '401', 'message': 'Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource.'}}
+"POST /api/chatbot/chat/ HTTP/1.1" 500 155961
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 140, in post
+    answer = generate_azure_answer(user_query, docs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 120, in generate_azure_answer
+    response = chat_client.chat.completions.create(
+        stream=False,
+    ...<9 lines>...
+        model=CHAT_DEPLOYMENT,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1087, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\_base_client.py", line 1249, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\openai\_base_client.py", line 1037, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'code': '401', 'message': 'Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource.'}}
+"POST /api/chatbot/chat/ HTTP/1.1" 500 155979
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 172
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 172
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"OPTIONS /api/accounts/profile/ HTTP/1.1" 200 0
+Not Found: /api/accounts/profile/
+"GET /api/accounts/profile/ HTTP/1.1" 404 3878
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000001A41394DE50>: Failed to resolve 'mamascan-resource.cognitiveservices.azure.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='mamascan-resource.cognitiveservices.azure.com', port=443): Max retries exceeded with url: /openai/deployments/embedding-mamascan/embeddings?api-version=2023-05-15 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001A41394DE50>: Failed to resolve 'mamascan-resource.cognitiveservices.azure.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 138, in post
+    embedding = get_azure_embedding(user_query)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 104, in get_azure_embedding
+    response = requests.post(url, headers=headers, json=payload)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='mamascan-resource.cognitiveservices.azure.com', port=443): Max retries exceeded with url: /openai/deployments/embedding-mamascan/embeddings?api-version=2023-05-15 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001A41394DE50>: Failed to resolve 'mamascan-resource.cognitiveservices.azure.com' ([Errno 11001] getaddrinfo failed)"))
+"POST /api/chatbot/chat/ HTTP/1.1" 500 215021
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000001A41394FED0>: Failed to resolve 'mamascan-resource.cognitiveservices.azure.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='mamascan-resource.cognitiveservices.azure.com', port=443): Max retries exceeded with url: /openai/deployments/embedding-mamascan/embeddings?api-version=2023-05-15 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001A41394FED0>: Failed to resolve 'mamascan-resource.cognitiveservices.azure.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 138, in post
+    embedding = get_azure_embedding(user_query)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 104, in get_azure_embedding
+    response = requests.post(url, headers=headers, json=payload)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='mamascan-resource.cognitiveservices.azure.com', port=443): Max retries exceeded with url: /openai/deployments/embedding-mamascan/embeddings?api-version=2023-05-15 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001A41394FED0>: Failed to resolve 'mamascan-resource.cognitiveservices.azure.com' ([Errno 11001] getaddrinfo failed)"))
+"POST /api/chatbot/chat/ HTTP/1.1" 500 214941
+"GET /admin/ HTTP/1.1" 200 16627
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 172
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"OPTIONS /api/accounts/profile/ HTTP/1.1" 200 0
+Not Found: /api/accounts/profile/
+"GET /api/accounts/profile/ HTTP/1.1" 404 3878
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 58
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 58
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+Not Found: /api/accounts/profile/
+"GET /api/accounts/profile/ HTTP/1.1" 404 3878
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+Not Found: /api/accounts/profile/
+"GET /api/accounts/profile/ HTTP/1.1" 404 3878
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 274
+"GET /api/auth/profile/ HTTP/1.1" 200 274
+"POST /api/chatbot/chat/ HTTP/1.1" 200 47
+"POST /api/chatbot/chat/ HTTP/1.1" 200 602
+"POST /api/chatbot/chat/ HTTP/1.1" 200 86
+"OPTIONS /api/auth/logout/ HTTP/1.1" 200 0
+Bad Request: /api/auth/logout/
+"POST /api/auth/logout/ HTTP/1.1" 400 25
+"POST /api/auth/login/ HTTP/1.1" 200 805
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/auth/profile/ HTTP/1.1" 200 274
+"GET /api/auth/profile/ HTTP/1.1" 200 274
+"GET /api/auth/profile/ HTTP/1.1" 200 274
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+Watching for file changes with StatReloader

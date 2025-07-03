@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'screening',
     'appointments',
     'analytics',
+    'payments',
+    'chatbot',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +127,7 @@ REST_FRAMEWORK = {
 
 # JWT Settings
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
@@ -205,3 +207,35 @@ LOGGING = {
 # AI Model Configuration
 AI_MODEL_PATH = os.path.join(BASE_DIR, 'ai_models')
 RISK_PREDICTION_MODEL = 'cervical_cancer_risk_model.pkl'
+
+# Payment Gateway Configuration
+PAYMENT_GATEWAY = {
+    'API_KEY': 'your-api-key',
+    'API_SECRET': 'your-api-secret',
+    'ENDPOINT_URL': 'https://api.paymentgateway.com',
+}
+
+MPESA_PAYBILL_NUMBER = os.environ.get('MPESA_PAYBILL_NUMBER', '123456')     
+MPESA_SHORTCODE = os.environ.get('MPESA_SHORTCODE', '654321')
+# MPESA Lipa Na M-Pesa Online Configuration
+MPESA_LNM_API_URL = os.environ.get('MPESA_LNM_API_URL', 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest')
+MPESA_LNM_SHORTCODE = os.environ.get('MPESA_LNM_SHORTCODE', '174379')
+MPESA_LNM_LIPA_NA_MPESA_ONLINE = os.environ.get('MPESA  _LNM_LIPA_NA_MPESA_ONLINE', 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest')
+MPESA_LNM_LIPA_NA_MPESA_ONLINE_SHORTCODE = os.environ.get('MPESA_LNM_LIPA_NA_MPESA_ONLINE_SHORTCODE', '174379')
+MPESA_LNM_LIPA_NA_MPESA_ONLINE_LIPA_NA_MPESA_ON = os.environ.get('MPESA_LNM_LIPA_NA_MPESA_ONLINE_LIPA_NA_MPESA_ON', 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest')  
+# MPESA Lipa Na M-Pesa Online Callback URL
+MPESA_LNM_CALLBACK_URL = os.environ.get('MPESA_LNM_CALLBACK_URL', 'https://yourdomain.com/api/mpesa/callback/') 
+# MPESA Lipa Na M-Pesa Online Shortcode Key
+MPESA_LNM_SHORTCODE_KEY = os.environ.get('MPESA_LNM_SHORTCODE_KEY', 'your_shortcode_key_here')          
+
+
+
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # take environment variables from .env.
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
+AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")  # Add this to your .env if not present

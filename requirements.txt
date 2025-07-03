@@ -8,3 +8,8 @@ django-filter
 drf-yasg
 gunicorn
 python-dotenv
+Django>=3.2,<4.0
+djangorestframework>=3.12,<4.0
+stripe>=2.56,<3.0
+paypalrestsdk>=1.14,<2.0
+requests>=2.25,<3.0
