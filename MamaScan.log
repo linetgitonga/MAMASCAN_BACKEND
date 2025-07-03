@@ -601,3 +601,4 @@ Bad Request: /api/auth/logout/
 "GET /api/auth/profile/ HTTP/1.1" 200 274
 "GET /api/screening/patients/ HTTP/1.1" 200 52
 "GET /api/screening/screenings/ HTTP/1.1" 200 52
+Watching for file changes with StatReloader
