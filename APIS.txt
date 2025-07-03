@@ -1,0 +1,658 @@
+lynnmuthoni: grenerate the us.py code
+
+GitHub Copilot: Here is a basic urls.py for your screening app, providing REST API endpoints for the main models. You can adjust the views and paths as needed.
+
+````python
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from . import views
+
+router = DefaultRouter()
+router.register(r'patients', views.PatientViewSet, basename='patient')
+router.register(r'screenings', views.ScreeningRecordViewSet, basename='screeningrecord')
+router.register(r'followups', views.ScreeningFollowUpViewSet, basename='screeningfollowup')
+router.register(r'risk-factors', views.RiskFactorWeightViewSet, basename='riskfactorweight')
+
+urlpatterns = [
+    path('', include(router.urls)),
+    # Add custom endpoints if needed, e.g.:
+    # path('predict-risk/', views.RiskPredictionAPIView.as_view(), name='predict-risk'),
+    # path('summary/', views.ScreeningSummaryAPIView.as_view(), name='screening-summary'),
+]
+````
+
+lynnmuthoni: generate urls.py
+
+GitHub Copilot: ````python
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from . import views
+
+router = DefaultRouter()
+router.register(r'patients', views.PatientListCreateView, basename='patient')
+router.register(r'screenings', views.ScreeningRecordListCreateView, basename='screeningrecord')
+router.register(r'followups', views.ScreeningFollowUpListCreateView, basename='screeningfollowup')
+# Uncomment if you add a ViewSet for RiskFactorWeight
+# router.register(r'risk-factors', views.RiskFactorWeightViewSet, basename='riskfactorweight')
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('predict-risk/', views.predict_risk_view, name='predict-risk'),
+    # Add more custom endpoints as needed
+]
+````
+
+lynnmuthoni:                            ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\PROJECTS\Projectsvenv\Lib\site-packages\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\ADMIN\Desktop\PROJECTS\MAMASCAN\MamaScan\screening\urls.py", line 13, in <module>
+    path('', include(router.urls)),
+                     ^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\PROJECTS\Projectsvenv\Lib\site-packages\rest_framework\routers.py", line 89, in urls
+    self._urls = self.get_urls()
+                 ~~~~~~~~~~~~~^^
+  File "C:\Users\ADMIN\Desktop\PROJECTS\Projectsvenv\Lib\site-packages\rest_framework\routers.py", line 380, in get_urls
+    urls = super().get_urls()
+  File "C:\Users\ADMIN\Desktop\PROJECTS\Projectsvenv\Lib\site-packages\rest_framework\routers.py", line 274, in get_urls
+    routes = self.get_routes(viewset)
+  File "C:\Users\ADMIN\Desktop\PROJECTS\Projectsvenv\Lib\site-packages\rest_framework\routers.py", line 185, in get_routes
+    extra_actions = viewset.get_extra_actions()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: ty
+
+GitHub Copilot: Your error is because you are registering **generic API views** (`PatientListCreateView`, `ScreeningRecordListCreateView`, `ScreeningFollowUpListCreateView`) with the DRF router, but the router expects **ViewSets**. Generic views do **not** have the methods the router needs.
+
+**How to fix:**
+
+1. **Use ViewSets with the router**  
+   OR  
+2. **Use generic views with path() directly, not with the router**
+
+---
+
+### Option 1: Use ViewSets with the router
+
+If you want to use the router, you must define ViewSets for your models (e.g., `PatientViewSet`, `ScreeningRecordViewSet`, `ScreeningFollowUpViewSet`).
+
+**Example:**
+````python
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from . import views
+
+router = DefaultRouter()
+router.register(r'patients', views.PatientViewSet, basename='patient')
+router.register(r'screenings', views.ScreeningRecordViewSet, basename='screeningrecord')
+router.register(r'followups', views.ScreeningFollowUpViewSet, basename='screeningfollowup')
+# router.register(r'risk-factors', views.RiskFactorWeightViewSet, basename='riskfactorweight')
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('predict-risk/', views.predict_risk_view, name='predict-risk'),
+]
+````
+
+---
+
+### Option 2: Use generic views with path()
+
+If you want to keep using your generic views, **do not use the router**. Instead, use `path()` for each view:
+
+````python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('patients/', views.PatientListCreateView.as_view(), name='patient-list-create'),
+    path('patients/<int:pk>/', views.PatientDetailView.as_view(), name='patient-detail'),
+    path('screenings/', views.ScreeningRecordListCreateView.as_view(), name='screeningrecord-list-create'),
+    path('screenings/<int:pk>/', views.ScreeningRecordDetailView.as_view(), name='screeningrecord-detail'),
+    path('followups/', views.ScreeningFollowUpListCreateView.as_view(), name='screeningfollowup-list-create'),
+    # Add detail view for followups if needed
+    path('predict-risk/', views.predict_risk_view, name='predict-risk'),
+]
+````
+
+---
+
+**Summary:**  
+- Use **ViewSets** with routers  
+- Use **generic views** with `path()`  
+Choose one approach and update your urls.py accordingly.
+
+lynnmuthoni: GENRATE ADMIN.PY
+
+GitHub Copilot: ````python
+from django.contrib import admin
+from .models import User, UserProfile
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('email', 'username', 'user_type', 'is_verified', 'is_active', 'created_at')
+    list_filter = ('user_type', 'is_verified', 'is_active')
+    search_fields = ('email', 'username', 'phone_number', 'county', 'sub_county')
+    ordering = ('-created_at',)
+    readonly_fields = ('created_at', 'updated_at')
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'years_of_experience', 'is_available_for_appointments', 'rating', 'total_ratings')
+    search_fields = ('user__email', 'user__username')
+    readonly_fields = ('created_at', 'updated_at')
+````
+
+lynnmuthoni: GENEARTE ADMIN.PY
+
+GitHub Copilot: ````python
+from django.contrib import admin
+from .models import Patient, ScreeningRecord, RiskFactorWeight, ScreeningFollowUp
+
+@admin.register(Patient)
+class PatientAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'national_id', 'phone_number', 'county', 'sub_county', 'registered_by', 'created_at')
+    search_fields = ('first_name', 'last_name', 'national_id', 'phone_number', 'email')
+    list_filter = ('county', 'sub_county', 'marital_status')
+    readonly_fields = ('created_at', 'updated_at')
+
+@admin.register(ScreeningRecord)
+class ScreeningRecordAdmin(admin.ModelAdmin):
+    list_display = ('patient', 'screened_by', 'screening_date', 'risk_level', 'ai_risk_score', 'ai_confidence', 'referral_needed')
+    search_fields = ('patient__first_name', 'patient__last_name', 'patient__national_id')
+    list_filter = ('risk_level', 'hiv_status', 'hpv_vaccination_status', 'contraceptive_use', 'smoking_status', 'referral_needed')
+    readonly_fields = ('created_at', 'updated_at')
+
+@admin.register(RiskFactorWeight)
+class RiskFactorWeightAdmin(admin.ModelAdmin):
+    list_display = ('factor_name', 'weight', 'is_active')
+    search_fields = ('factor_name',)
+    list_filter = ('is_active',)
+    readonly_fields = ('created_at', 'updated_at')
+
+@admin.register(ScreeningFollowUp)
+class ScreeningFollowUpAdmin(admin.ModelAdmin):
+    list_display = ('screening_record', 'follow_up_date', 'status', 'contacted_by', 'contact_method')
+    search_fields = ('screening_record__patient__first_name', 'screening_record__patient__last_name')
+    list_filter = ('status', 'contact_method')
+    readonly_fields = ('created_at', 'updated_at')
+````
+
+lynnmuthoni: generate requirements
+
+GitHub Copilot: ````pip-requirements
+Django>=4.2,<5.0
+djangorestframework>=3.14
+djangorestframework-simplejwt
+Pillow
+psycopg2-binary
+django-cors-headers
+django-filter
+drf-yasg
+gunicorn
+python-dotenv
+````
+
+lynnmuthoni: @ GENERATNERATE A LIST OF INPUTS AND OUTPUTS AND THE API ENDPOINTS IN THE PROJECT
+
+GitHub Copilot: Here’s a summary of the **API endpoints**, their **inputs**, and **outputs** based on your project structure and code:
+
+---
+
+## 1. Patients
+
+### Endpoints
+- **GET /patients/**  
+  List all patients  
+  **Input:** Query params (optional: search)  
+  **Output:** List of patient objects
+
+- **POST /patients/**  
+  Create a new patient  
+  **Input:** Patient data (JSON)  
+  **Output:** Created patient object
+
+- **GET /patients/{id}/**  
+  Retrieve a patient by ID  
+  **Input:** URL param (id)  
+  **Output:** Patient object
+
+- **PUT/PATCH /patients/{id}/**  
+  Update a patient  
+  **Input:** URL param (id), patient data (JSON)  
+  **Output:** Updated patient object
+
+- **DELETE /patients/{id}/**  
+  Delete a patient  
+  **Input:** URL param (id)  
+  **Output:** Success message/status
+
+---
+
+## 2. Screening Records
+
+### Endpoints
+- **GET /screenings/**  
+  List all screening records  
+  **Input:** Query params (optional: patient_id, risk_level, start_date, end_date)  
+  **Output:** List of screening record objects
+
+- **POST /screenings/**  
+  Create a new screening record  
+  **Input:** Screening record data (JSON)  
+  **Output:** Created screening record object
+
+- **GET /screenings/{id}/**  
+  Retrieve a screening record by ID  
+  **Input:** URL param (id)  
+  **Output:** Screening record object
+
+- **PUT/PATCH /screenings/{id}/**  
+  Update a screening record  
+  **Input:** URL param (id), screening record data (JSON)  
+  **Output:** Updated screening record object
+
+- **DELETE /screenings/{id}/**  
+  Delete a screening record  
+  **Input:** URL param (id)  
+  **Output:** Success message/status
+
+---
+
+## 3. Screening Follow-Ups
+
+### Endpoints
+- **GET /followups/**  
+  List all follow-ups  
+  **Input:** Query params (optional)  
+  **Output:** List of follow-up objects
+
+- **POST /followups/**  
+  Create a new follow-up  
+  **Input:** Follow-up data (JSON)  
+  **Output:** Created follow-up object
+
+---
+
+## 4. Risk Prediction
+
+### Endpoint
+- **POST /predict-risk/**  
+  Predict risk using AI  
+  **Input:**  
+  ```json
+  {
+    "age": int,
+    "age_at_first_intercourse": int,
+    "number_of_sexual_partners": int,
+    "parity": int,
+    "hiv_status": "POSITIVE"|"NEGATIVE"|"UNKNOWN",
+    "hpv_vaccination_status": "VACCINATED"|"NOT_VACCINATED"|"UNKNOWN",
+    "contraceptive_use": "NONE"|"ORAL_PILLS"|"INJECTION"|"IUD"|"BARRIER"|"OTHER",
+    "smoking_status": "NEVER"|"FORMER"|"CURRENT",
+    "family_history_cervical_cancer": bool,
+    "previous_abnormal_pap": bool,
+    "via_result": "NEGATIVE"|"POSITIVE"|"SUSPICIOUS" (optional),
+    "bethesda_category": "NILM"|"ASCUS"|"LSIL"|"HSIL"|"AGC"|"CANCER" (optional)
+  }
+  ```
+  **Output:**  
+  ```json
+  {
+    "risk_score": float,
+    "risk_level": str,
+    "confidence": float,
+    "recommended_action": str,
+    "follow_up_months": int,
+    "referral_needed": bool,
+    "explanation": [str, ...]
+  }
+  ```
+
+---
+
+## 5. (Admin Only) Risk Factor Weights
+
+### Endpoints
+- **GET /admin/screening/riskfactorweight/**  
+  List, add, edit, or delete risk factor weights via Django admin
+
+---
+
+### **Summary Table**
+
+| Endpoint                  | Methods         | Input Type      | Output Type         |
+|---------------------------|-----------------|-----------------|---------------------|
+| /patients/                | GET, POST       | JSON/Query      | Patient(s)          |
+| /patients/{id}/           | GET, PUT, PATCH, DELETE | JSON/URL      | Patient            |
+| /screenings/              | GET, POST       | JSON/Query      | ScreeningRecord(s)  |
+| /screenings/{id}/         | GET, PUT, PATCH, DELETE | JSON/URL      | ScreeningRecord     |
+| /followups/               | GET, POST       | JSON/Query      | FollowUp(s)         |
+| /predict-risk/            | POST            | JSON            | Risk Prediction     |
+
+---
+
+Let me know if you need the exact JSON schema for any endpoint!
+
+lynnmuthoni: GEENRATE LIST  INPUTS AND EXPECTED  OUTPUTS FOR ALL THE API ENDPOINTS
+
+GitHub Copilot: Here is a structured list of **API endpoints** in your project, with their **inputs** and **expected outputs**:
+
+---
+
+## 1. Accounts API
+
+### POST `/accounts/register/`
+- **Input:**  
+  User registration data (JSON):  
+  `{ "email": str, "username": str, "password": str, "user_type": str, ... }`
+- **Output:**  
+  User object or registration status (JSON)
+
+---
+
+### POST `/accounts/login/`
+- **Input:**  
+  `{ "email": str, "password": str }`
+- **Output:**  
+  Auth token or login status (JSON)
+
+---
+
+### POST `/accounts/logout/`
+- **Input:**  
+  Auth token (header)
+- **Output:**  
+  Logout status (JSON)
+
+---
+
+### GET `/accounts/profile/`
+- **Input:**  
+  Auth token (header)
+- **Output:**  
+  User profile object (JSON)
+
+---
+
+### PUT/PATCH `/accounts/profile/update/`
+- **Input:**  
+  Profile update data (JSON)
+- **Output:**  
+  Updated profile object (JSON)
+
+---
+
+### POST `/accounts/password/change/`
+- **Input:**  
+  `{ "old_password": str, "new_password": str }`
+- **Output:**  
+  Status message (JSON)
+
+---
+
+### GET `/accounts/specialists/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  List of specialist user objects (JSON)
+
+---
+
+### GET `/accounts/stats/`
+- **Input:**  
+  None
+- **Output:**  
+  User statistics (JSON)
+
+---
+
+## 2. Screening API
+
+### GET `/screening/patients/`
+- **Input:**  
+  (Optional query params: search)
+- **Output:**  
+  List of patient objects (JSON)
+
+---
+
+### POST `/screening/patients/`
+- **Input:**  
+  Patient data (JSON)
+- **Output:**  
+  Created patient object (JSON)
+
+---
+
+### GET `/screening/patients/<int:pk>/`
+- **Input:**  
+  URL param: pk
+- **Output:**  
+  Patient object (JSON)
+
+---
+
+### PUT/PATCH `/screening/patients/<int:pk>/`
+- **Input:**  
+  Patient update data (JSON)
+- **Output:**  
+  Updated patient object (JSON)
+
+---
+
+### DELETE `/screening/patients/<int:pk>/`
+- **Input:**  
+  URL param: pk
+- **Output:**  
+  Status message (JSON)
+
+---
+
+### GET `/screening/screenings/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  List of screening record objects (JSON)
+
+---
+
+### POST `/screening/screenings/`
+- **Input:**  
+  Screening record data (JSON)
+- **Output:**  
+  Created screening record object (JSON)
+
+---
+
+### GET `/screening/screenings/<int:pk>/`
+- **Input:**  
+  URL param: pk
+- **Output:**  
+  Screening record object (JSON)
+
+---
+
+### PUT/PATCH `/screening/screenings/<int:pk>/`
+- **Input:**  
+  Screening record update data (JSON)
+- **Output:**  
+  Updated screening record object (JSON)
+
+---
+
+### DELETE `/screening/screenings/<int:pk>/`
+- **Input:**  
+  URL param: pk
+- **Output:**  
+  Status message (JSON)
+
+---
+
+### GET `/screening/followups/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  List of follow-up objects (JSON)
+
+---
+
+### POST `/screening/followups/`
+- **Input:**  
+  Follow-up data (JSON)
+- **Output:**  
+  Created follow-up object (JSON)
+
+---
+
+### POST `/screening/predict-risk/`
+- **Input:**  
+  Risk prediction input (JSON):  
+  ```json
+  {
+    "age": int,
+    "age_at_first_intercourse": int,
+    "number_of_sexual_partners": int,
+    "parity": int,
+    "hiv_status": "POSITIVE"|"NEGATIVE"|"UNKNOWN",
+    "hpv_vaccination_status": "VACCINATED"|"NOT_VACCINATED"|"UNKNOWN",
+    "contraceptive_use": "NONE"|"ORAL_PILLS"|"INJECTION"|"IUD"|"BARRIER"|"OTHER",
+    "smoking_status": "NEVER"|"FORMER"|"CURRENT",
+    "family_history_cervical_cancer": bool,
+    "previous_abnormal_pap": bool,
+    "via_result": "NEGATIVE"|"POSITIVE"|"SUSPICIOUS" (optional),
+    "bethesda_category": "NILM"|"ASCUS"|"LSIL"|"HSIL"|"AGC"|"CANCER" (optional)
+  }
+  ```
+- **Output:**  
+  Risk prediction result (JSON):  
+  ```json
+  {
+    "risk_score": float,
+    "risk_level": str,
+    "confidence": float,
+    "recommended_action": str,
+    "follow_up_months": int,
+    "referral_needed": bool,
+    "explanation": [str, ...]
+  }
+  ```
+
+---
+
+## 3. Appointments API
+
+### GET appointments
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  List of appointment objects (JSON)
+
+---
+
+### POST `/appointments/create/`
+- **Input:**  
+  Appointment data (JSON)
+- **Output:**  
+  Created appointment object (JSON)
+
+---
+
+### GET `/appointments/<uuid:pk>/`
+- **Input:**  
+  URL param: pk
+- **Output:**  
+  Appointment object (JSON)
+
+---
+
+### POST `/appointments/<uuid:pk>/update-status/`
+- **Input:**  
+  `{ "status": str }`
+- **Output:**  
+  Updated appointment object or status (JSON)
+
+---
+
+### GET `/clients/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  List of client objects (JSON)
+
+---
+
+### POST `/clients/create/`
+- **Input:**  
+  Client data (JSON)
+- **Output:**  
+  Created client object (JSON)
+
+---
+
+### GET `/clients/<int:pk>/`
+- **Input:**  
+  URL param: pk
+- **Output:**  
+  Client object (JSON)
+
+---
+
+## 4. Analytics API
+
+### GET analytics
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  Analytics dashboard data (JSON)
+
+---
+
+### GET `/analytics/revenue/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  Revenue analysis data (JSON)
+
+---
+
+### GET `/analytics/staff/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  Staff performance data (JSON)
+
+---
+
+### GET `/analytics/clients/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  Client analysis data (JSON)
+
+---
+
+### GET `/analytics/feedback/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  Feedback analysis data (JSON)
+
+---
+
+### GET `/analytics/export/`
+- **Input:**  
+  (Optional query params)
+- **Output:**  
+  Exported report file or data (JSON or file)
+
+---
+
+**Let me know if you want the exact input/output fields for any specific endpoint!**
