@@ -2,11 +2,12 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator, MaxValueValidator
-
-User = get_user_model()
+# User = get_user_model()
+from accounts.models import User  # Ensure this import matches your User model location
 
 class Patient(models.Model):
     # Personal Information
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='patient_profile', null=True, blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
@@ -28,7 +29,12 @@ class Patient(models.Model):
     ])
     
     # Registered by
-    registered_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='registered_patients')
+    registered_by = models.ForeignKey(
+        User, 
+        on_delete=models.CASCADE, 
+        related_name='registered_patients',
+        default=1
+    )
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

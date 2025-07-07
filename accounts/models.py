@@ -42,7 +42,7 @@ class User(AbstractUser):
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from appointments.models import Client, Staff, Service  # adjust import if needed
-
+from screening.models import Patient  # adjust import if needed
 @receiver(post_save, sender=User)
 def create_related_profile(sender, instance, created, **kwargs):
     if created:
@@ -58,6 +58,17 @@ def create_related_profile(sender, instance, created, **kwargs):
                     "date_of_birth": instance.date_of_birth,
                 }
             )
+            Patient.objects.get_or_create(
+                user=instance,
+                defaults={
+                    "first_name": instance.first_name,
+                    "last_name": instance.last_name,
+                    "date_of_birth": instance.date_of_birth,
+                    "phone_number": instance.phone_number,
+                    "email": instance.email,
+                    "national_id": f"temp-{instance.pk}",  # Temporary unique national_id
+                }
+            )
         elif instance.user_type in ['CHV', 'CLINICIAN', 'SPECIALIST']:
             # Create Staff if not exists
             Staff.objects.get_or_create(
@@ -71,6 +82,9 @@ def create_related_profile(sender, instance, created, **kwargs):
                     "hire_date": instance.created_at.date() if instance.created_at else None,
                 }
             )
+
+
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')

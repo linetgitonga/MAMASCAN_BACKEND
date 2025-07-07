@@ -10,14 +10,14 @@ SPECIALIZATIONS = ["General", "Gynecology", "Oncology", "Pediatrics", "Radiology
 PATIENT_FIRST_NAMES = ["Amina", "Kwame", "Wanjiku", "Chinedu", "Fatou", "Thabo", "Zainab", "Kofi", "Lerato", "Abdi"]
 PATIENT_LAST_NAMES = ["Odhiambo", "Njoroge", "Okeke", "Mensah", "Kamau", "Diallo", "Mugisha", "Mwangi", "Mutiso", "Ochieng"]
 
-CHV_FIRST_NAMES = ["Mary", "John", "Grace", "James", "Sarah", "David"]
-CHV_LAST_NAMES = ["Otieno", "Munyua", "Kagwe", "Wambua", "Karanja", "Omondi"]
+CHV_FIRST_NAMES = ["Moses", "Agnes", "Felix", "Naomi", "Collins", "Beatrice"]
+CHV_LAST_NAMES = ["Barasa", "Chebet", "Mutua", "Njenga", "Otieno", "Wekesa"]
 
-CLINICIAN_FIRST_NAMES = ["Paul", "Mercy", "Samuel", "Joy", "Brian", "Alice"]
-CLINICIAN_LAST_NAMES = ["Omondi", "Kiplagat", "Mugambi", "Wanjiru", "Karanja", "Muriuki"]
+CLINICIAN_FIRST_NAMES = ["Cynthia", "Elijah", "Patricia", "Dennis", "Irene", "Victor"]
+CLINICIAN_LAST_NAMES = ["Kariuki", "Obuya", "Ndungu", "Munyua", "Makori", "Cheruiyot"]
 
-SPECIALIST_FIRST_NAMES = ["Esther", "Peter", "Linda", "David", "Joyce", "James"]
-SPECIALIST_LAST_NAMES = ["Muriuki", "Okoth", "Munyiri", "Wambui", "Karanja", "Omondi"]
+SPECIALIST_FIRST_NAMES = ["Brenda", "George", "Lucy", "Stephen", "Janet", "Francis"]
+SPECIALIST_LAST_NAMES = ["Mwende", "Oloo", "Kimani", "Were", "Mutua", "Omondi"]
 
 def random_phone():
     return f"+2547{random.randint(10000000, 99999999)}"
@@ -28,13 +28,14 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         # Create dummy patients
         for i in range(40):
-            User.objects.create_user(
-                email=f"patient{i}@example.com",
-                username=f"patient{i}",
+            last_name = PATIENT_LAST_NAMES[i % len(PATIENT_LAST_NAMES)]
+            User.objects.get_or_create(
+                email=f"{last_name.lower()}{i}@gmail.com",
+                username=f"{last_name.lower()}user{i}",
                 password="testpass123",
                 user_type="PATIENT",
                 first_name=PATIENT_FIRST_NAMES[i % len(PATIENT_FIRST_NAMES)],
-                last_name=PATIENT_LAST_NAMES[i % len(PATIENT_LAST_NAMES)],
+                last_name=last_name,
                 phone_number=random_phone(),
                 county=random.choice(COUNTIES),
                 date_of_birth=timezone.now().date().replace(year=1990 + i),
@@ -43,13 +44,14 @@ class Command(BaseCommand):
 
         # Create dummy CHVs
         for i in range(15):
-            User.objects.create_user(
-                email=f"chv{i}@example.com",
-                username=f"chv{i}",
+            last_name = CHV_LAST_NAMES[i % len(CHV_LAST_NAMES)]
+            User.objects.get_or_create(
+                email=f"{last_name.lower()}chv{i}@gmail.com",
+                username=f"{last_name.lower()}chv{i}",
                 password="testpass123",
                 user_type="CHV",
                 first_name=CHV_FIRST_NAMES[i % len(CHV_FIRST_NAMES)],
-                last_name=CHV_LAST_NAMES[i % len(CHV_LAST_NAMES)],
+                last_name=last_name,
                 phone_number=random_phone(),
                 county=random.choice(COUNTIES),
                 specialization="General",
@@ -58,9 +60,9 @@ class Command(BaseCommand):
 
         # Create dummy clinicians
         for i in range(5):
-            User.objects.create_user(
-                email=f"clinician{i}@example.com",
-                username=f"clinician{i}",
+            User.objects.get_or_create(
+                email=f"{CLINICIAN_FIRST_NAMES[i % len(CLINICIAN_FIRST_NAMES)].lower()}clinician{i}@gmail.com",
+                username=f"{CLINICIAN_FIRST_NAMES[i % len(CLINICIAN_FIRST_NAMES)].lower()}clinician{i}",
                 password="testpass123",
                 user_type="CLINICIAN",
                 first_name=CLINICIAN_FIRST_NAMES[i % len(CLINICIAN_FIRST_NAMES)],
@@ -74,8 +76,8 @@ class Command(BaseCommand):
         # Create dummy specialists
         for i in range(10):
             User.objects.create_user(
-                email=f"specialist{i}@example.com",
-                username=f"specialist{i}",
+                email=f"{SPECIALIST_FIRST_NAMES[i % len(SPECIALIST_FIRST_NAMES)].lower()}sp{i}@mamascan.com",
+                username=f"{SPECIALIST_FIRST_NAMES[i % len(SPECIALIST_FIRST_NAMES)].lower()}sp{i}",
                 password="testpass123",
                 user_type="SPECIALIST",
                 first_name=SPECIALIST_FIRST_NAMES[i % len(SPECIALIST_FIRST_NAMES)],
@@ -88,8 +90,8 @@ class Command(BaseCommand):
 
         # Create an admin
         User.objects.create_superuser(
-            email="admin@example.com",
-            username="admin",
+            email="faithadmin@gmail.com",
+            username="faithadmin",
             password="adminpass123",
             user_type="ADMIN",
             first_name="Admin",
