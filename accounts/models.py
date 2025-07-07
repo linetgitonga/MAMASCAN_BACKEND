@@ -38,6 +38,40 @@ class User(AbstractUser):
     class Meta:
         db_table = 'accounts_user'
 
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from appointments.models import Client, Staff, Service  # adjust import if needed
+
+@receiver(post_save, sender=User)
+def create_related_profile(sender, instance, created, **kwargs):
+    if created:
+        if instance.user_type == 'PATIENT':
+            # Create Client if not exists
+            Client.objects.get_or_create(
+                user=instance,
+                defaults={
+                    "first_name": instance.first_name,
+                    "last_name": instance.last_name,
+                    "email": instance.email,
+                    "phone": instance.phone_number,
+                    "date_of_birth": instance.date_of_birth,
+                }
+            )
+        elif instance.user_type in ['CHV', 'CLINICIAN', 'SPECIALIST']:
+            # Create Staff if not exists
+            Staff.objects.get_or_create(
+                user=instance,
+                defaults={
+                    "first_name": instance.first_name,
+                    "last_name": instance.last_name,
+                    "email": instance.email,
+                    "phone": instance.phone_number,
+                    "specialization": instance.specialization,
+                    "hire_date": instance.created_at.date() if instance.created_at else None,
+                }
+            )
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)

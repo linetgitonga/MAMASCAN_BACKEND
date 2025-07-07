@@ -602,3 +602,422 @@ Bad Request: /api/auth/logout/
 "GET /api/screening/patients/ HTTP/1.1" 200 52
 "GET /api/screening/screenings/ HTTP/1.1" 200 52
 Watching for file changes with StatReloader
+"GET /admin/accounts/user/add/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/accounts/user/add/ HTTP/1.1" 200 4210
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3848
+"POST /admin/login/?next=/admin/accounts/user/add/ HTTP/1.1" 302 0
+"GET /admin/accounts/user/add/ HTTP/1.1" 200 38912
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+"GET /admin/accounts/user/ HTTP/1.1" 200 19904
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /admin/accounts/user/1/change/ HTTP/1.1" 200 39468
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 11815
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+"GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 11815
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 333
+"GET /static/admin/js/popup_response.js HTTP/1.1" 200 532
+"GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 11815
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 327
+"GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 11815
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 11815
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 330
+"GET /admin/auth/group/ HTTP/1.1" 200 17583
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/add/ HTTP/1.1" 200 23654
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/ HTTP/1.1" 200 19904
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/add/ HTTP/1.1" 200 39035
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 11815
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 346
+"POST /admin/accounts/user/add/ HTTP/1.1" 200 39769
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/ HTTP/1.1" 200 19904
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/1/change/ HTTP/1.1" 200 39648
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/accounts/user/1/change/ HTTP/1.1" 302 0
+"GET /admin/accounts/user/ HTTP/1.1" 200 20117
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/ HTTP/1.1" 200 18414
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3797
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 315
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/auth/profile/ HTTP/1.1" 200 315
+"GET /api/auth/profile/ HTTP/1.1" 200 315
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+"POST /api/chatbot/chat/ HTTP/1.1" 200 694
+"POST /api/chatbot/chat/ HTTP/1.1" 200 193
+Not Found: /
+"GET / HTTP/1.1" 404 3797
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+Unauthorized: /api/auth/profile/
+"GET /api/auth/profile/ HTTP/1.1" 401 172
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 846
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+Bad Request: /api/screening/patients/
+"POST /api/screening/patients/ HTTP/1.1" 400 96
+Bad Request: /api/screening/patients/
+"POST /api/screening/patients/ HTTP/1.1" 400 96
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\appointments\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 315
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+Unauthorized: /api/auth/profile/
+"GET /api/auth/profile/ HTTP/1.1" 401 172
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 846
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request version ('©IDÐu\x99j[n!ã')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x10ý&¼À\x0f')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03â\x9b[÷\x13S>í_]in\x1b\x16\x95\x7f9\x81\x01èÁº\x8aûÞò\x93S²Éá')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03½(þÉ:ÿ\x9f¶n¥çIk;¶0ýB-!Q/?TL»o¶©ÃÅð')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('EH¡·}\x87²\x14)¼\x01)\x8cN\x1b@L')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03s`>N\x95<Ymò©¿ó\x8cÆ0}TäàjhëÌ´ÊO\x13\x91\x1bE\x87ã ')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request version ('.NDõÜL¹è/Ý¶vÀ\x03')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('ñì\x82S/ï')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03ìSöÆ®B')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+"GET /admin/screening/patient/add/ HTTP/1.1" 200 29948
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+"GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+"GET /admin/accounts/user/ HTTP/1.1" 200 64378
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /api/auth/profile/ HTTP/1.1" 200 315
+"POST /api/auth/login/ HTTP/1.1" 200 846
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/patients/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/screening/screenings/ HTTP/1.1" 200 52
+"GET /api/auth/profile/ HTTP/1.1" 200 315
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+"POST /api/chatbot/chat/ HTTP/1.1" 200 704
+"POST /api/chatbot/chat/ HTTP/1.1" 200 284
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4174
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3797
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4174
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/login.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 18414
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 13011
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+code 400, message Bad request version ('|')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('[')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('EZ\x9a\x9e\x9b\x8a©Ù\x15Ó«\x8fû\x08@õä@x\x94\x88<t{^ò§\x89ñQe\x8crn¹|"\x83j')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('80\x84')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063\x9a\x9a\x00\x00\x00+\x00\x07\x06\x1a\x1a\x03\x04\x03\x03\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('¿\x84nJ')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x98Tv\x91FÛÌ\x8câP5Ûe\x7f\x05¸Ì\x01éIzk\x8f0À')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('\x00')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+code 400, message Bad request version ('rÓ;¥')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /
+"GET / HTTP/1.1" 404 3797
+"GET /admin/ HTTP/1.1" 200 18414
+"GET /admin/accounts/user/ HTTP/1.1" 200 64378
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /admin/appointments/service/ HTTP/1.1" 200 17233
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/service/add/ HTTP/1.1" 200 18828
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /admin/appointments/client/ HTTP/1.1" 200 35952
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/staff/ HTTP/1.1" 200 34038
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/service/ HTTP/1.1" 200 17233
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/ HTTP/1.1" 200 64378
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/service/ HTTP/1.1" 200 17233
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/service/add/ HTTP/1.1" 200 18828
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/userprofile/ HTTP/1.1" 200 15788
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/ HTTP/1.1" 200 64378
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/analytics/analyticsreport/ HTTP/1.1" 200 18021
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/analytics/analyticsreport/add/ HTTP/1.1" 200 21794
+"GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+"GET /admin/analytics/kpimetric/ HTTP/1.1" 200 17656
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/appointmenthistory/ HTTP/1.1" 200 17064
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/appointment/ HTTP/1.1" 200 90391
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/clientfeedback/ HTTP/1.1" 200 17427
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/client/ HTTP/1.1" 200 35952
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/service/ HTTP/1.1" 200 27002
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/staff/ HTTP/1.1" 200 34038
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/ HTTP/1.1" 200 16981
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/add/ HTTP/1.1" 200 29948
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/riskfactorweight/ HTTP/1.1" 200 16515
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/riskfactorweight/add/ HTTP/1.1" 200 19194
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningfollowup/ HTTP/1.1" 200 17334
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 18899
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/staff/ HTTP/1.1" 200 34038
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/service/ HTTP/1.1" 200 27002
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/client/ HTTP/1.1" 200 35952
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/clientfeedback/ HTTP/1.1" 200 17427
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/appointment/ HTTP/1.1" 200 90391
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/appointmenthistory/ HTTP/1.1" 200 17064
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342

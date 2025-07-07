@@ -21,7 +21,7 @@ class Service(models.Model):
         return self.name
 
 class Client(models.Model):
-    user = settings.AUTH_USER_MODEL  # Use settings.AUTH_USER_MODEL for custom user model
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Use ForeignKey for user relation
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -39,7 +39,7 @@ class Client(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 class Staff(models.Model):
-    user = settings.AUTH_USER_MODEL
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Use ForeignKey for user relation
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()

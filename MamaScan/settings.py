@@ -206,7 +206,7 @@ LOGGING = {
 
 # AI Model Configuration
 AI_MODEL_PATH = os.path.join(BASE_DIR, 'ai_models')
-RISK_PREDICTION_MODEL = 'cervical_cancer_risk_model.pkl'
+RISK_PREDICTION_MODEL = 'model.pkl'
 
 # Payment Gateway Configuration
 PAYMENT_GATEWAY = {

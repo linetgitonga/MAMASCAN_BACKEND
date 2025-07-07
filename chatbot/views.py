@@ -32,7 +32,7 @@ def get_azure_embedding(text):
     response.raise_for_status()
     return response.json()['data'][0]['embedding']
 
-faiss_index = load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+# faiss_index = load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
 
 # Initialize AzureOpenAI client for chat
 chat_client = AzureOpenAI(
@@ -59,8 +59,15 @@ def generate_azure_answer(query, docs):
     )
     return response.choices[0].message.content.strip()
 
+# chatbot/views.py
+
+def get_faiss_index():
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+
+
 class ChatbotAPIView(APIView):
     def post(self, request):
+        faiss_index = get_faiss_index()
         user_query = request.data.get("query")
         embedding = get_azure_embedding(user_query)
         docs = faiss_index.search(embedding)
