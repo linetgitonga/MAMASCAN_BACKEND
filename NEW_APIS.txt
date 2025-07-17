@@ -1,0 +1,115 @@
+1. User Endpoints (accounts app)
+/api/accounts/register/
+POST
+Input:
+{
+  "email": "user@example.com",
+  "username": "user123",
+  "password": "yourpassword",
+  "user_type": "PATIENT",  // or "CHV", "CLINICIAN", "SPECIALIST", "ADMIN"
+  "first_name": "John",
+  "last_name": "Doe",
+  "phone_number": "+254712345678",
+  "county": "Nairobi",
+  "date_of_birth": "1990-01-01"
+}
+
+Output:
+{
+  "id": 1,
+  "email": "user@example.com",
+  "user_type": "PATIENT",
+  "first_name": "John",
+  "last_name": "Doe",
+  ...
+}
+2. Authentication Endpoints
+/api/token/
+POST
+Input:
+
+Output:
+{
+  "refresh": "jwt-refresh-token",
+  "access": "jwt-access-token"
+}
+
+3. Patient Endpoints (screening app)
+/api/patients/
+GET
+Output:
+[
+  {
+    "id": 1,
+    "user": 1,
+    "first_name": "John",
+    "last_name": "Doe",
+    "date_of_birth": "1990-01-01",
+    "phone_number": "+254712345678",
+    "email": "user@example.com",
+    "national_id": "temp-1",
+    "county": "Nairobi",
+    "sub_county": "Westlands",
+    ...
+  }
+]
+
+/api/patients/
+POST
+Input:
+{
+  "user": 1,
+  "first_name": "John",
+  "last_name": "Doe",
+  "date_of_birth": "1990-01-01",
+  "phone_number": "+254712345678",
+  "email": "user@example.com",
+  "national_id": "12345678",
+  "county": "Nairobi",
+  "sub_county": "Westlands"
+}
+
+Output:
+
+4. Screening Record Endpoints
+/api/screenings/
+POST
+Input:
+
+Output:
+
+5. Appointments Endpoints
+/api/appointments/
+GET
+Output:
+
+/api/appointments/create/
+POST
+Input:
+
+Output:
+
+6. Payments Endpoints
+/api/payments/initiate-payment/
+POST
+Input:
+
+Output:
+
+/api/payments/payment-status/<transaction_id>/
+GET
+Output:
+
+7. Chatbot Endpoint
+/api/chatbot/chat/
+POST
+Input:
+
+Output:
+
+Note:
+
+The actual URLs may vary depending on your urls.py structure.
+Some endpoints may require authentication (Authorization: Bearer <token> header).
+The output fields may include more or fewer fields depending on your serializers.
+Let me know if you want the endpoints for a specific app, or with more/less detail!

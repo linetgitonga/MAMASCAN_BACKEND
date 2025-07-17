@@ -1081,6 +1081,1200 @@
     "Out-of-Pocket (KES)": 4481.62999999999
   }
 
+  ],
+  "ContactSheet":[
+    
+  {
+    "Hospital": "THE NAIROBI HOSPITAL",
+    "Location": "Argwings Kodhek Road",
+    "Address": "PO BOX 30026 00100 Nairobi",
+    "Phone": "020 2845000",
+    "Fax": "020 2714400",
+    "Email": "0722 204 114/5/6/7"
+  },
+  {
+    "Hospital": "THE AGA KHAN UNIVERSITY HOSPITAL",
+    "Location": "3RD Parklands Avenue/ Limuru",
+    "Address": "PO BOX 30270 00100 Nairobi",
+    "Phone": "020 3740000",
+    "Fax": "020 374 2531",
+    "Email": "0711092000"
+  },
+  {
+    "Hospital": "M P SHAH HOSPITAL",
+    "Location": "Shiva chi road parklands",
+    "Address": "PO BOX 14497 00800",
+    "Phone": "020 3742763-7",
+    "Fax": "020 3746177",
+    "Email": "info@mpshahhosp.org"
+  },
+  {
+    "Hospital": "THE MATER HOSPITAL",
+    "Location": "South B Dunga Road",
+    "Address": "PO BOX 30325 00200",
+    "Phone": "020531197/9",
+    "Fax": "020 536572/7",
+    "Email": "0724 531199"
+  },
+  {
+    "Hospital": "METROPOLITAN HOSPITAL",
+    "Location": "Opp. Jericho Market Rabai Road",
+    "Address": "BuruBuru Phase 3 PO BOX 808 00515",
+    "Phone": "020 781730/3",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "GERTRUDE GARDEN CHILDRENS HOSPITAL",
+    "Location": "Muthaiga Road",
+    "Address": "PO BOX 42325 00100",
+    "Phone": "376 3477",
+    "Fax": "020 720 6000",
+    "Email": "020 244530/1"
+  },
+  {
+    "Hospital": "GURU NANAK RAMGARHIA SIKH HOSPITAL",
+    "Location": "Muranga Rd",
+    "Address": "P. O. Box 33071 – 00600 Ngara Rd Nairobi.",
+    "Phone": "(20) – 6763481",
+    "Fax": "0722203884",
+    "Email": "0733600495"
+  },
+  {
+    "Hospital": "AVENUE HOSPITAL",
+    "Location": "1st Parklands avenue",
+    "Address": "PO Box 35534 00200",
+    "Phone": "020 3742907",
+    "Fax": 3744554,
+    "Email": 3745570
+  },
+  {
+    "Hospital": "COPTIC HOSPITAL",
+    "Location": "Ngong Road off Kindaruma Lane",
+    "Address": "PO Box 21570 00505",
+    "Phone": "020 2725856",
+    "Fax": 2724737,
+    "Email": 2720831
+  },
+  {
+    "Hospital": "JAMAA HOSPITAL",
+    "Location": "Rabai Road Uhuru Estate",
+    "Address": "PO Box 17153 00510",
+    "Phone": "020 786547",
+    "Fax": 787033,
+    "Email": 350941
+  },
+  {
+    "Hospital": "THE KAREN HOSPITAL",
+    "Location": "Langata – Karen Road",
+    "Address": "PO Box 74240 00200",
+    "Phone": "020 6613000",
+    "Fax": 882606,
+    "Email": "0726 222001-3"
+  },
+  {
+    "Hospital": "THE NAIROBI WOMENS HOSPITAL",
+    "Location": "Hurling ham Medicare Plaza Argwings Kodhek Road",
+    "Address": "PO Box 10552 00100",
+    "Phone": "020 2736845",
+    "Fax": 2724802,
+    "Email": 2726821
+  },
+  {
+    "Hospital": "MASABA HOSPITAL",
+    "Location": "Kirichwa Road opp. Adams Arcade",
+    "Address": "PO Box 53648",
+    "Phone": "020 3860922",
+    "Fax": "3866885/6",
+    "Email": 3878145
+  },
+  {
+    "Hospital": "NAIROBI WEST HOSPITAL",
+    "Location": "Gandhi Avenue Nairobi West",
+    "Address": "PO Box 43375 00100",
+    "Phone": "020 602684/5",
+    "Fax": 603492,
+    "Email": 603723
+  },
+  {
+    "Hospital": "NAIROBI EQUATOR HOSPITAL",
+    "Location": "Nairobi West Shopping Centre - Bukani Road",
+    "Address": "PO Box 962 00200",
+    "Phone": "020 604720/2",
+    "Fax": 604921,
+    "Email": ""
+  },
+  {
+    "Hospital": "PARKLANDS AMBULATORY SURGICAL CENTRE",
+    "Location": "3rd Parklands Avenue",
+    "Address": "PO Box 61777 00200",
+    "Phone": "020 375 0287",
+    "Fax": 3748767,
+    "Email": ""
+  },
+  {
+    "Hospital": "ST MARYS MISSION HOSPITAL",
+    "Location": "Otiende estate off langata road",
+    "Address": "PO Box 3409 00202",
+    "Phone": "020 6004238",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "SOUTH B HOSPITAL",
+    "Location": "Kapiti Crescent South B shopping centre",
+    "Address": "PO Box 49255",
+    "Phone": "020 532762",
+    "Fax": 534340,
+    "Email": ""
+  },
+  {
+    "Hospital": "CHIROMO LANE MEDICAL CENTRE",
+    "Location": "Chiromo lane / Muthithi Road Westlands",
+    "Address": "PO Box 1501 00606",
+    "Phone": "020 3749979",
+    "Fax": 3746103,
+    "Email": "苹"
+  },
+  {
+    "Hospital": "System: Here's the requested data separated into columns for Hospital",
+    "Location": "Location",
+    "Address": "Address",
+    "Phone": "Phone",
+    "Fax": "Fax",
+    "Email": "and Email"
+  },
+  {
+    "Hospital": "<xaiArtifact artifact_id=\"771f2f8a-c869-40ab-a6c6-1bd2c7854b39\" artifact_version_id=\"92d3acf7-a91e-4635-96ef-56fdce0a9cba\" title=\"Kenya_Hospitals.csv\" contentType=\"text/csv\">",
+    "Location": "",
+    "Address": "",
+    "Phone": "",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Hospital",
+    "Location": "Location",
+    "Address": "Address",
+    "Phone": "Phone",
+    "Fax": "Fax",
+    "Email": "Email"
+  },
+  {
+    "Hospital": "THE NAIROBI HOSPITAL",
+    "Location": "Argwings Kodhek Road",
+    "Address": "PO BOX 30026 00100 Nairobi",
+    "Phone": "020 2845000, 020 2714400, 0722 204 114/5/6/7, 0733639303",
+    "Fax": "020 2713662, 020 2728003",
+    "Email": "inquiry@nbihosp.org, admissions@nbihosp.org"
+  },
+  {
+    "Hospital": "THE AGA KHAN UNIVERSITY HOSPITAL",
+    "Location": "3RD Parklands Avenue/ Limuru",
+    "Address": "PO BOX 30270 00100 Nairobi",
+    "Phone": "020 3740000, 020 374 2531, 0711092000, 0722204146",
+    "Fax": "020 3741749",
+    "Email": "akhn@akhskenya.org"
+  },
+  {
+    "Hospital": "M P SHAH HOSPITAL",
+    "Location": "Shiva chi road parklands",
+    "Address": "PO BOX 14497 00800",
+    "Phone": "020 3742763-7",
+    "Fax": "020 3746177",
+    "Email": "info@mpshahhosp.org"
+  },
+  {
+    "Hospital": "THE MATER HOSPITAL",
+    "Location": "South B Dunga Road",
+    "Address": "PO BOX 30325 00200",
+    "Phone": "020531197/9, 020 536572/7, 0724 531199, 0722 828629, 020 558179, 0734 418971",
+    "Fax": "",
+    "Email": "ceo@materkenya.com"
+  },
+  {
+    "Hospital": "METROPOLITAN HOSPITAL",
+    "Location": "Opp. Jericho Market Rabai Road",
+    "Address": "BuruBuru Phase 3 PO BOX 808 00515",
+    "Phone": "020 781730/3",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "GERTRUDE GARDEN CHILDRENS HOSPITAL",
+    "Location": "Muthaiga Road",
+    "Address": "PO BOX 42325 00100",
+    "Phone": "376 3477, 020 720 6000, 020 244530/1, 0722 898949, 0733639444",
+    "Fax": "",
+    "Email": "info@gerties.org"
+  },
+  {
+    "Hospital": "GURU NANAK RAMGARHIA SIKH HOSPITAL",
+    "Location": "Muranga Rd",
+    "Address": "P. O. Box 33071 – 00600 Ngara Rd Nairobi.",
+    "Phone": "(20) – 6763481, 0722203884, 0733600495",
+    "Fax": "(20) – 6763482",
+    "Email": ""
+  },
+  {
+    "Hospital": "AVENUE HOSPITAL",
+    "Location": "1st Parklands avenue",
+    "Address": "PO Box 35534 00200",
+    "Phone": "020 3742907, 3744554, 3745570, 374230, 3741521, 3749108, 0722 854221",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "COPTIC HOSPITAL",
+    "Location": "Ngong Road off Kindaruma Lane",
+    "Address": "PO Box 21570 00505",
+    "Phone": "020 2725856, 2724737, 2720831, 0735 558862, 272 4737",
+    "Fax": "020 2725771",
+    "Email": "coptichospital@copticmission.org"
+  },
+  {
+    "Hospital": "JAMAA HOSPITAL",
+    "Location": "Rabai Road Uhuru Estate",
+    "Address": "PO Box 17153 00510",
+    "Phone": "020 786547,787033,350941, 0722681534, 0725 221456, 020 7787033, 7786547",
+    "Fax": "020 781591",
+    "Email": ""
+  },
+  {
+    "Hospital": "THE KAREN HOSPITAL",
+    "Location": "Langata – Karen Road",
+    "Address": "PO Box 74240 00200",
+    "Phone": "020 6613000, 882606, 0726 222001-3, 0736200 001-3",
+    "Fax": "020 883361/2, 6613222",
+    "Email": "marketing@karenhospital.com"
+  },
+  {
+    "Hospital": "THE NAIROBI WOMENS HOSPITAL",
+    "Location": "Hurling ham Medicare Plaza Argwings Kodhek Road",
+    "Address": "PO Box 10552 00100",
+    "Phone": "020 2736845, 2724802, 2726821, 0722760146, 0733 618353, 271 2886, 272 6821, 2716651",
+    "Fax": "",
+    "Email": "inquiry@nwch.co.ke"
+  },
+  {
+    "Hospital": "MASABA HOSPITAL",
+    "Location": "Kirichwa Road opp. Adams Arcade",
+    "Address": "PO Box 53648",
+    "Phone": "020 3860922, 3866885/6, 3878145",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "NAIROBI WEST HOSPITAL",
+    "Location": "Gandhi Avenue Nairobi West",
+    "Address": "PO Box 43375 00100",
+    "Phone": "020 602684/5, 603492, 603723",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "NAIROBI EQUATOR HOSPITAL",
+    "Location": "Nairobi West Shopping Centre - Bukani Road",
+    "Address": "PO Box 962 00200",
+    "Phone": "020 604720/2, 604921",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "PARKLANDS AMBULATORY SURGICAL CENTRE",
+    "Location": "3rd Parklands Avenue",
+    "Address": "PO Box 61777 00200",
+    "Phone": "020 375 0287, 3748767",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "ST MARYS MISSION HOSPITAL",
+    "Location": "Otiende estate off langata road",
+    "Address": "PO Box 3409 00202",
+    "Phone": "020 6004238",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "SOUTH B HOSPITAL",
+    "Location": "Kapiti Crescent South B shopping centre",
+    "Address": "PO Box 49255",
+    "Phone": "020 532762, 534340",
+    "Fax": "",
+    "Email": "SBhospital@wananchi.com"
+  },
+  {
+    "Hospital": "CHIROMO LANE MEDICAL CENTRE",
+    "Location": "Chiromo lane / Muthithi Road Westlands",
+    "Address": "PO Box 1501 00606",
+    "Phone": "020 3749979,3746103",
+    "Fax": "020 3747196",
+    "Email": ""
+  },
+  {
+    "Hospital": "MELCHIZEDEK HOSPITAL",
+    "Location": "Naivasha Road",
+    "Address": "PO Box 20085",
+    "Phone": "020 3875745,3877111",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "LIONS SIGHTFIRST EYE HOSPITAL",
+    "Location": "Kaptagat Road Loresho",
+    "Address": "P.O. Box 66576",
+    "Phone": "020 4183239",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "FAMILYCARE MEDICAL CENTRE",
+    "Location": "Family Health Plaza & Maternity Mai Mahiu Road off Langata Rd",
+    "Address": "P.O. Box 30581 00100",
+    "Phone": "020 604296/7, 603923/7",
+    "Fax": "020 603928",
+    "Email": "info@fpak.org"
+  },
+  {
+    "Hospital": "NEW LANGATA MEDICAL CENTRE",
+    "Location": "Opp. Uhuru Gardens Primary School Off Langata Road on Kitengela Road",
+    "Address": "P.O. Box 934 00517",
+    "Phone": "020 604897",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "MADINA NURSING HOME",
+    "Location": "9TH Street Eastleigh Section 2 - OPP KCB",
+    "Address": "P.O. Box 78370 00507",
+    "Phone": "020 6761784",
+    "Fax": "",
+    "Email": "MNH2003-4@hotmail.com"
+  },
+  {
+    "Hospital": "MOTHER AND CHILD HOSPITAL",
+    "Location": "1st avenue - Next to California Estate Eastleigh Section v11",
+    "Address": "P.O. Box 77918",
+    "Phone": "",
+    "Fax": "mchospital@wanachi.com",
+    "Email": ""
+  },
+  {
+    "Hospital": "MARIAKANI COTTAGE HOSPITAL",
+    "Location": "South B Plaza - Mchumbi Road South B Shopping Centre",
+    "Address": "P.O. Box 12535 00400",
+    "Phone": "020 651436,559261",
+    "Fax": "",
+    "Email": "mcottge@mitsuminet.co.ke"
+  },
+  {
+    "Hospital": "THE KENYATTA NATIONAL HOSPITAL",
+    "Location": "Hospital road off ngong Road",
+    "Address": "P.O. Box 20723 00202",
+    "Phone": "020 2726300, 2726450/1-5, 2726550, 0738 606409, 0733606400, 0710 600943, 0722749881, 07228295500/1/2",
+    "Fax": "020 272 5272",
+    "Email": "cpro@knh.or.ke, knhadmin@knh.or.ke"
+  },
+  {
+    "Hospital": "ARMED FORCES MEMORIAL HOSPITAL",
+    "Location": "Mbagathi Road",
+    "Address": "P.O. Box 40668",
+    "Phone": "020 2727610",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "MATHARE HOSPITAL",
+    "Location": "Thika Road",
+    "Address": "P.O. Box 40663",
+    "Phone": "020 3763315/7, 3763922, 0717 6943399, 0731 649846",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "NAIROBI HOSPICE KNH",
+    "Location": "Compound KNH",
+    "Address": "PO Box 74818 00200",
+    "Phone": "020 2712361, 2726502",
+    "Fax": "020 2722212",
+    "Email": "n hos@wanachi.com"
+  },
+  {
+    "Hospital": "MBAGATHI DISTRICT HOSPITAL",
+    "Location": "Ngumo Estate - Off Mbagathi Road",
+    "Address": "P.O. Box 40205",
+    "Phone": "020 2728530, 2724712",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "NATIONAL SPINAL INJURY",
+    "Location": "Lenana Road",
+    "Address": "PO Box 20906",
+    "Phone": "020 2723158, 2726336",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "The Mombasa Hospital",
+    "Location": "Mama Ngina Drive next to Treasury Square",
+    "Address": "P.O. Box 90294 G.P.O Mombassa 80100 Kenya",
+    "Phone": "254 041 2312191 / 2312099, 0722 203 755, 0733 333 655",
+    "Fax": "254 41 2225086 / 2229254 / 2228711, 228710, 0722 203755, 0733 333655",
+    "Email": "info@mombasahospital.com"
+  },
+  {
+    "Hospital": "The Aga Khan Hospital Mombasa",
+    "Location": "Vanga Road-Kizingo",
+    "Address": "P.O. Box 83013 Mombassa Kenya",
+    "Phone": "254 41 222 7710 – 5, 041231 29 53, 0722 205 110, 0733 641 020, 0733 641020, 0722 205110, 2227711/2/3/4/5",
+    "Fax": "254 41 231 3278",
+    "Email": "akhm@mba.akhkenya.org"
+  },
+  {
+    "Hospital": "Diani beach hospital",
+    "Location": "Diani Beach Road",
+    "Address": "P.O.Box 5074 – 80401 Ukunda",
+    "Phone": "254 40 320 2435, 254 722 569261, 254 733 755153, 254 20 3300150 / 1",
+    "Fax": "254 40 320 3080",
+    "Email": "info@dianibeachhospital.com, dr.rekhi@dianibeachhospital.com"
+  },
+  {
+    "Hospital": "Pandya Memorial Hospital",
+    "Location": "Dedan Kimathi Street",
+    "Address": "P.O. Box 90434 - 80100 Mombasa",
+    "Phone": "254 (041) 2313930, 2223247, 0722-206424, 0734-600663",
+    "Fax": "254 (041) 2221787, 2315281, 2313256",
+    "Email": "admin@pandyahospital.org"
+  },
+  {
+    "Hospital": "Coast Provincial General Hospital",
+    "Location": "",
+    "Address": "P.O. Box 90231-mombasa 80100",
+    "Phone": "041 2222148, 2314202/3/4/5, 0722 20 78 68",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "A.I.C. Kijabe Hospital",
+    "Location": "Kijabe Off Nairobi-Naivasha rd",
+    "Address": "P.O.Box 20 – 00220 Kijabe",
+    "Phone": "020-3246500, 020-2371609, 0712-504 056, 0733-779994",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "ACK Maseno Hospital",
+    "Location": "Otieno Oyoo Street Maseno Town",
+    "Address": "P.O.Box 116 – 40105 Maseno",
+    "Phone": "0722-353 917",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "ACK Mt. Kenya Hospital",
+    "Location": "Kerugoya-Karatina Road",
+    "Address": "P.O.Box 598 Kerugoya 10300. Kenya",
+    "Phone": "020-2033971, 0722-897833",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Bishop Kioko Catholic Hospital",
+    "Location": "Machakos-Konza Road",
+    "Address": "P.O.Box 2240 Machakos 90100. Kenya",
+    "Phone": "044-21415, 044-20495, 0738-627 621, 0721-179 359",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Central Memorial Hospital",
+    "Location": "Upper Road - Thika",
+    "Address": "P.O.Box 1734 – 01000 Thika",
+    "Phone": "067-22884, 067-22728, 020-2369161, 0710-480 526, 020-2369161",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Consolata Hospital Nyeri",
+    "Location": "Nyeri Ihururu Road",
+    "Address": "P.O.Box 25 – 10100 Nyeri",
+    "Phone": "020-2666023, 020-26666024",
+    "Fax": "061-2031012",
+    "Email": ""
+  },
+  {
+    "Hospital": "Crater Medical Centre",
+    "Location": "Off Nakuru-Nairobi Highway Section 58",
+    "Address": "P.O.Box 1569 – 20100 Nakuru",
+    "Phone": "051-2211869, 0717-777 806, 0725-556 158",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Eldoret Hospital",
+    "Location": "Makasembo Road",
+    "Address": "P.O.Box 2234-30100 Eldoret",
+    "Phone": "053-2062000, 053-2062001, 0733-618833, 0733-964096, 0715-225944",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Evans-Sunrise Medical Centre",
+    "Location": "Nakuru West Road Off Oginga-Odinga Avenue",
+    "Address": "P.O.Box 15464 – 20100 Nakuru",
+    "Phone": "0712-247 365, 0733-791 945, 0725-911 911, 0735- 911 911",
+    "Fax": "051-2214207",
+    "Email": ""
+  },
+  {
+    "Hospital": "Jamii Hospital",
+    "Location": "Karatina Kuguru Road",
+    "Address": "P.O.Box 1230 - 10101 Karatina",
+    "Phone": "061-72077, 061- 72728, 0712-275 175",
+    "Fax": "061-72971",
+    "Email": ""
+  },
+  {
+    "Hospital": "Kiria-ini Mission Hospital",
+    "Location": "Kiriaini",
+    "Address": "P.O.Box 239 - 10204 Kiria-ini",
+    "Phone": "020-3545157, 0723-704 530",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Mary Immaculate Hospital",
+    "Location": "Off Nyeri-Mweiga Road",
+    "Address": "P.O.Box 369 Mweiga",
+    "Phone": "061-55236, 0721-290628, 0723-576 106",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Mwea Mission Hospital",
+    "Location": "Wang’uru Mwea Off Nairobi-Embu road",
+    "Address": "P.O.Box 8 – 10303 Wang’uru",
+    "Phone": "020-2032382, 0721-214 938, 0722-260 748, 0722-606 810",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Nanyuki Cottage Hospital",
+    "Location": "Off Nanyuki-Nyeri Road",
+    "Address": "P.O.Box 95 – 10400 Nanyuki",
+    "Phone": "062-32207, 020-32666, 0722-457173",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "P.C.E.A Chogoria Hospital",
+    "Location": "Chogoria Town Off Meru-Chuka Road",
+    "Address": "P.O.Box 35-60401 Chogoria",
+    "Phone": "064-22013, 22620, 22011/04",
+    "Fax": "064-22133",
+    "Email": ""
+  },
+  {
+    "Hospital": "P.C.E.A Hospital TumuTumu",
+    "Location": "Karatina Nyeri Road TumuTumu Area",
+    "Address": "P.O.Box Private Bag - 10101 Karatina",
+    "Phone": "020-3562503, 0720-948474",
+    "Fax": "020-2326943",
+    "Email": ""
+  },
+  {
+    "Hospital": "PCEA Kikuyu Hospital",
+    "Location": "Dagoretti Road Near Alliance High School",
+    "Address": "P.O.Box 45 - 00902 Kikuyu",
+    "Phone": "020-2044765, 020-2044767, 020-2044768, 0722-207636, 0733-606133",
+    "Fax": "020-2044772",
+    "Email": ""
+  },
+  {
+    "Hospital": "Siloam Hospital",
+    "Location": "Kericho Next to District Gen. Hospital",
+    "Address": "P.O.Box 2181 - 20200 Kericho",
+    "Phone": "052-21200, 0728 881121, 0729-692 010",
+    "Fax": "052-30342",
+    "Email": ""
+  },
+  {
+    "Hospital": "Rift Valley Province Tenwek Hospital",
+    "Location": "Bomet",
+    "Address": "P.O.Box 39 - 20400 Bomet",
+    "Phone": "020-2045542, 0728-8091900",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Eldoret Memorial Hospital",
+    "Location": "Eldoret",
+    "Address": "P.O.Box 143-30100 Eldoret",
+    "Phone": "053-2033471, 0722-209795",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Moi Teaching and Referral Hospital (MTRH)",
+    "Location": "Eldoret",
+    "Address": "P.O.Box 3-30100 Eldoret",
+    "Phone": "053-33471, 0722-209795",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Medhill Hospital",
+    "Location": "Eldoret",
+    "Address": "P.O.Box 3548-30100 Eldoret",
+    "Phone": "052-2060071/2, 0723-578895, 0735-864169",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Kericho Nursing Home",
+    "Location": "Kericho",
+    "Address": "P.O.Box 614-20200 Kericho",
+    "Phone": "052-30653, 0722-999661, 0720-882484",
+    "Fax": "052-30419",
+    "Email": ""
+  },
+  {
+    "Hospital": "Bosongo Medical Center",
+    "Location": "Kisii",
+    "Address": "P.O.Box 3460-40200 Kisii",
+    "Phone": "058-/31335/31957",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Hema Hospital",
+    "Location": "Kisii",
+    "Address": "P.O.Box 3613-40200 Kisii",
+    "Phone": "020-2022548",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Mt. Elgon Hospital",
+    "Location": "Kitale",
+    "Address": "P.O.Box 12-30200 Kitale",
+    "Phone": "054-30704",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Star Hospital",
+    "Location": "Malindi",
+    "Address": "P.O.Box 5-80200 Malindi",
+    "Phone": "042-30762",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Mumias Maternity and Nursing Home",
+    "Location": "Mumias",
+    "Address": "P.O.Box 124-50102 Mumias",
+    "Phone": "056-41291",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Homegrown Medical Center",
+    "Location": "Naivasha",
+    "Address": "P.O.Box 11-20117 Naivasha",
+    "Phone": "050-30380/5, 50017",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Pine Breeze Hospital",
+    "Location": "Nakuru",
+    "Address": "P.O.Box 1200-20100 Nakuru",
+    "Phone": "051-2211278/9",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Outspan Hospital Nyeri",
+    "Location": "Nyeri",
+    "Address": "P.O.Box 29-10100 Nyeri",
+    "Phone": "",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Dr. Hanifa Medical Centre",
+    "Location": "Voi",
+    "Address": "P.O.Box 40-80300 Voi",
+    "Phone": "0722-237961, 043 2030580",
+    "Fax": "",
+    "Email": ""
+  },
+  {
+    "Hospital": "Webuye Nursing Home",
+    "Location": "Webuye",
+    "Address": "P.O.Box 412-50205 Webuye",
+    "Phone": "055-41575",
+    "Fax": "",
+    "Email": ""
+  }
+],
+  "About":[
+   {
+  "background": {
+    "global_rank": "third most common malignancy in women worldwide",
+    "impact_in_developing_countries": "leading cause of cancer-related death",
+    "us_prevalence": "relatively uncommon",
+    "image_reference": "Cervical carcinoma with adnexa",
+    "epidemiologic_trend_us": {
+      "trend": "declined steadily over past few decades",
+      "reason": "mass screening with Papanicolaou (Pap) tests",
+      "screening_effect": "detection and treatment of preinvasive disease"
+    },
+    "developing_countries_trend": "remains at high levels",
+    "screening_recommendation": {
+      "hpv_testing": "recommended for women 30-65 years",
+      "evaluation_method": "colposcopy and biopsy for symptoms, abnormal screening results, or gross cervical lesion"
+    },
+    "treatment_by_stage": {
+      "early_invasive_cancer": "surgery",
+      "advanced_cases": "radiation combined with chemotherapy",
+      "disseminated_disease": "chemotherapy or radiation for symptom palliation"
+    },
+    "overview": {
+      "definition": "cancerous tissue forms on the surface of the cervix",
+      "prevention": "regular Pap smears, HPV vaccine",
+      "annual_us_diagnoses": 14000,
+      "most_affected_age_group": "35-44 years"
+    },
+    "types": [
+      {
+        "type": "squamous cell carcinomas",
+        "prevalence": "80-90%"
+      },
+      {
+        "type": "adenocarcinomas",
+        "prevalence": "10-20%"
+      },
+      {
+        "type": "mixed",
+        "prevalence": "combination of squamous cell carcinomas and adenocarcinomas"
+      }
+    ]
+  },
+  "pathophysiology": {
+    "hpv_requirement": "Human papillomavirus (HPV) infection required for cervical cancer",
+    "hpv_infection_stats": {
+      "prevalence": "high in sexually active women",
+      "clearance_rate": "90% clear within months to a few years",
+      "cytology_post_infection": "may show low-grade squamous intraepithelial lesion within 2 years"
+    },
+    "progression_stats": {
+      "cin_2_3_development": "5% of HPV infections develop CIN grade 2 or 3 within 3 years",
+      "cin_3_to_cancer_5_years": "20% of CIN 3 lesions progress to invasive cervical cancer within 5 years",
+      "cin_3_to_cancer_30_years": "40% of CIN 3 lesions progress to invasive cervical cancer within 30 years"
+    },
+    "carcinogenesis_factors": [
+      {
+        "factor": "type_and_duration_of_viral_infection",
+        "details": "high-risk HPV types and persistent infection increase progression risk; low-risk HPV types do not cause cervical cancer"
+      },
+      {
+        "factor": "host_conditions",
+        "details": "poor nutritional status, immunocompromise, HIV infection"
+      },
+      {
+        "factor": "environmental_factors",
+        "details": "smoking, vitamin deficiencies"
+      },
+      {
+        "factor": "screening_access",
+        "details": "lack of routine cytology screening"
+      },
+      {
+        "factor": "gynecologic_factors",
+        "details": "early age of first intercourse, higher number of sexual partners"
+      },
+      {
+        "factor": "oral_contraceptives",
+        "details": "use for 5+ years associated with increased risk, possibly due to higher HPV infection risk or direct interaction"
+      }
+    ],
+    "genetic_susceptibility": {
+      "relative_risk": "2-fold for women with affected first-degree biologic relative",
+      "prevalence": "<1% of cervical cancers",
+      "associated_genes": [
+        {
+          "gene": "TNF",
+          "role": "initiates cell commitment to apoptosis",
+          "variants": ["TNFa-8", "TNFa-572", "TNFa-857", "TNFa-863", "TNF G-308A"],
+          "effect": "higher incidence of cervical cancer"
+        },
+        {
+          "gene": "Tp53",
+          "role": "apoptosis and gene repair",
+          "effect": "polymorphisms associated with increased HPV infection progression to cervical cancer"
+        },
+        {
+          "gene": "HLA",
+          "role": "immune response",
+          "effect": "some anomalies increase risk, others protective"
+        },
+        {
+          "gene": "CCR2",
+          "location": "chromosome 3p21",
+          "effect": "may influence susceptibility by disrupting immune response to HPV"
+        },
+        {
+          "gene": "Fas",
+          "location": "chromosome 10q24.1",
+          "effect": "may influence susceptibility by disrupting immune response to HPV"
+        },
+        {
+          "gene": "CASP8",
+          "effect": "polymorphism in promoter region associated with decreased risk"
+        }
+      ],
+      "epigenetic_modifications": {
+        "mechanism": "methylation",
+        "role": "aberrant DNA methylation patterns associated with cervical cancer development"
+      }
+    },
+    "hpv_details": {
+      "genome": "closed circular double-stranded DNA",
+      "proteins": {
+        "early": ["E1", "E2", "E3", "E4", "E6", "E7"],
+        "late": ["L1", "L2"]
+      },
+      "genotypes": "over 115 identified",
+      "high_risk_types": ["16", "18", "31", "33", "35", "45", "52", "58"],
+      "adenocarcinoma_types": ["16", "18", "45"],
+      "carcinogenic_groups": [
+        {
+          "group": "1",
+          "types": ["16", "18", "31", "33", "35", "39", "45", "51", "52", "56", "58", "59"],
+          "evidence": "sufficient"
+        },
+        {
+          "group": "2A",
+          "types": ["68"],
+          "evidence": "limited in humans, strong mechanistic"
+        },
+        {
+          "group": "2B",
+          "types": ["26", "53", "66", "67", "70", "73", "82"],
+          "evidence": "limited in humans"
+        },
+        {
+          "group": "phylogenetic_analogy",
+          "types": ["30", "34", "69", "85", "97"],
+          "evidence": "classified by analogy"
+        },
+        {
+          "group": "3",
+          "types": ["6", "11"],
+          "evidence": "inadequate epidemiological, no carcinogenic potential"
+        }
+      ],
+      "mechanism": {
+        "integration": "E6 and E7 genes enhanced replication",
+        "E7_effect": "binds and inactivates Rb protein",
+        "E6_effect": "binds p53, directs degradation",
+        "result": "resistance to apoptosis, uncensored cell growth, progression to malignancy"
+      }
+    },
+    "hiv_interaction": {
+      "effect": "suppresses immune recognition of HPV",
+      "prevalence": "at least 5 times more common in HIV-infected women",
+      "antiretroviral_impact": "no significant change in prevalence"
+    }
+  },
+  "etiology": {
+    "primary_cause": "genital HPV infection",
+    "transmission": "primarily sexual contact",
+    "risk_factors": [
+      "sex at a young age",
+      "multiple sexual partners",
+      "promiscuous male partners",
+      "history of sexually transmitted diseases",
+      "HIV infection (5-fold increased risk)",
+      "in utero diethylstilbestrol exposure"
+    ]
+  },
+  "epidemiology": {
+    "global_stats": {
+      "rank": "third most common malignancy in women",
+      "developing_countries": "second most common cancer, second most common cause of cancer-related deaths",
+      "developed_countries": "tenth most common cancer, not in top 10 causes of cancer deaths"
+    },
+    "us_stats": {
+      "incidence_trend": "decreased by 2.1% per year (women <50), 3.1% per year (women ≥50) since 2004",
+      "reason": "mass Pap test screening",
+      "2024_estimated_cases": 13820,
+      "cin_2_3_incidence": "150 per 100,000 women",
+      "peak_cin_2_3_age": "25-29 years, 800 per 100,000",
+      "abnormal_cytology_incidence": "7800 per 100,000 women"
+    },
+    "global_incidence": {
+      "annual_cases": "over 500,000",
+      "range": "4.5 per 100,000 (Western Asia) to 34.5 per 100,000 (Eastern Africa)",
+      "industrialized_countries": "4-10 per 100,000 women"
+    },
+    "age_demographics": {
+      "highest_incidence_late_stage": "50-79 years",
+      "adenocarcinoma_trend": "increasing in women under 40",
+      "hpv_16_prevalence": "higher in younger women"
+    },
+    "race_demographics": {
+      "incidence_per_100000": {
+        "Hispanic": 11.8,
+        "African_American": 9.8,
+        "American_Indian_Alaska_Native": 8.1,
+        "White": 8.0,
+        "Asian_Pacific_Islander": 7.2
+      },
+      "mortality_trends": {
+        "African_American": "decreased by 2.6% per year (2004-2008)",
+        "White": "stable"
+      }
+    }
+  },
+  "symptoms_and_causes": {
+    "early_stage_symptoms": "often asymptomatic",
+    "stage_1_symptoms": [
+      "watery or bloody vaginal discharge, possibly heavy and foul-smelling",
+      "vaginal bleeding after sex, between periods, or after menopause",
+      "pain during sex (dyspareunia)"
+    ],
+    "advanced_symptoms": [
+      "difficult or painful urination, sometimes with blood",
+      "diarrhea, rectal pain, or bleeding",
+      "fatigue, weight loss, loss of appetite",
+      "general feeling of illness",
+      "dull backache or leg swelling",
+      "pelvic/abdominal pain"
+    ],
+    "hpv_role": {
+      "causation": "causes almost all cervical cancer cases",
+      "transmission": "sexual contact (anal, oral, vaginal)",
+      "clearance": "most infections cleared by body",
+      "high_risk_strains": "about 12 strains linked to cancer",
+      "vaccine_efficacy": "protects against HPV strains causing up to 90% of cervical cancers"
+    },
+    "risk_factors": {
+      "controllable": [
+        "irregular screening history",
+        "HPV infection",
+        "early sexual intercourse (before 18)",
+        "multiple sexual partners",
+        "smoking",
+        "HIV infection",
+        "weakened immune system"
+      ],
+      "uncontrollable": [
+        "DES exposure in utero",
+        "family history"
+      ]
+    },
+    "progression_timeline": "3-7 years for precancerous changes to become cancer",
+    "complications": [
+      "pain from cancer spread",
+      "bladder and bowel issues (difficulty urinating, constipation)",
+      "kidney failure in advanced stages",
+      "blood clots due to increased blood viscosity",
+      "bleeding from vagina, rectum, or bladder",
+      "fertility or pregnancy challenges",
+      "treatment side effects (nausea, fatigue, sexual dysfunction)"
+    ]
+  },
+  "diagnosis_and_tests": {
+    "screening": {
+      "primary_method": "Pap test",
+      "goal": "detect precancerous cell changes",
+      "follow_up": "HPV test for abnormal Pap results"
+    },
+    "diagnostic_tests": [
+      {
+        "test": "colposcopy",
+        "description": "magnifies cervical cells to identify irregularities"
+      },
+      {
+        "test": "punch biopsy",
+        "description": "uses cutting tool to remove precancerous cells"
+      },
+      {
+        "test": "endocervical curettage",
+        "description": "scrapes cervical lining with curette"
+      },
+      {
+        "test": "loop electrosurgical excision procedure (LEEP)",
+        "description": "uses electrical wire loop to remove abnormal tissue"
+      },
+      {
+        "test": "cone biopsy",
+        "description": "removes cone-shaped piece of cervical tissue"
+      }
+    ],
+    "staging_tests": [
+      "liver and kidney function studies",
+      "blood and urine tests",
+      "X-rays (bladder, rectum, bowels, lungs)",
+      "CT scans",
+      "MRI"
+    ],
+    "stages": [
+      {
+        "stage": "I",
+        "description": "cancer confined to cervix neck, not in deeper tissues"
+      },
+      {
+        "stage": "II",
+        "description": "cancer spread beyond cervix and uterus, not to pelvic wall or lower vagina"
+      },
+      {
+        "stage": "III",
+        "description": "cancer spread to lower vagina, possibly pelvic wall, ureters, or lymph nodes"
+      },
+      {
+        "stage": "IV",
+        "description": "cancer spread to bladder, rectum, or distant organs (bones, lungs)"
+      }
+    ],
+    "pathological_features": [
+      "different size and shape",
+      "loss of structure or organization",
+      "increased fluid in cell",
+      "darkened center"
+    ]
+  },
+  "management_and_treatment": {
+    "treatment_factors": ["stage", "age", "general health", "desire for future children"],
+    "treatment_options": [
+      {
+        "type": "radiation",
+        "methods": [
+          {
+            "method": "external beam radiation therapy (EBRT)",
+            "description": "high-powered radiation from external machine"
+          },
+          {
+            "method": "brachytherapy",
+            "description": "radiation placed in or near cancer"
+          }
+        ]
+      },
+      {
+        "type": "chemotherapy",
+        "description": "drugs injected or taken orally, given in cycles"
+      },
+      {
+        "type": "surgery",
+        "methods": [
+          {
+            "method": "laser surgery",
+            "description": "burns off cancer cells"
+          },
+          {
+            "method": "cryosurgery",
+            "description": "freezes cancer cells"
+          },
+          {
+            "method": "hysterectomy",
+            "description": "removes uterus and cervix"
+          },
+          {
+            "method": "trachelectomy",
+            "description": "removes cervix and upper vagina, preserves uterus"
+          },
+          {
+            "method": "pelvic exenteration",
+            "description": "removes uterus, cervix, bladder, vagina, rectum, part of colon"
+          }
+        ]
+      },
+      {
+        "type": "targeted therapy",
+        "description": "destroys specific cancer cells by targeting growth proteins"
+      },
+      {
+        "type": "immunotherapy",
+        "description": "stimulates immune system to recognize and destroy cancer cells"
+      },
+      {
+        "type": "clinical trials",
+        "description": "tests new treatments"
+      },
+      {
+        "type": "alternative treatments",
+        "description": "diet, herbs, acupuncture; consult provider for safety"
+      }
+    ],
+    "cure_potential": {
+      "general": "highly treatable, especially in early stages",
+      "stage_1": "surgery primary, chemotherapy optional",
+      "stage_4": "cure unlikely, remission possible with radiation, chemotherapy, targeted therapy"
+    }
+  },
+  "prognosis": {
+    "survival_rates": [
+      {
+        "stage": "I",
+        "5_year_survival": ">90%"
+      },
+      {
+        "stage": "II",
+        "5_year_survival": "60-80%"
+      },
+      {
+        "stage": "III",
+        "5_year_survival": "~50%"
+      },
+      {
+        "stage": "IV",
+        "5_year_survival": "<30%"
+      },
+      {
+        "stage": "not spread",
+        "5_year_survival": "91%"
+      },
+      {
+        "stage": "spread to nearby tissues",
+        "5_year_survival": "60%"
+      },
+      {
+        "stage": "spread to lymph nodes/distant organs",
+        "5_year_survival": "19%"
+      }
+    ],
+    "2024_estimated_deaths": 4360,
+    "death_proportion": {
+      "all_cancer_deaths": "1.5%",
+      "gynecologic_cancer_deaths": "13%"
+    },
+    "outlook": "highly treatable in early stages, requires close monitoring post-treatment",
+    "emotional_impact": "support groups and counseling recommended"
+  },
+  "prevention": {
+    "methods": [
+      "regular gynecological exams and Pap tests",
+      "HPV vaccine (if eligible)",
+      "condom use during sex",
+      "limiting sexual partners",
+      "stopping smoking"
+    ]
+  },
+  "living_with_cervical_cancer": {
+    "when_to_contact_provider": [
+      "bleeding between periods or after menopause",
+      "watery vaginal discharge",
+      "pelvic pain or pain during sex",
+      "uncertainty about last Pap test"
+    ],
+    "emotional_support": "discuss diagnosis and treatment with healthcare team, consider counseling"
+  }
+}
   ]
-  
+ 
 }

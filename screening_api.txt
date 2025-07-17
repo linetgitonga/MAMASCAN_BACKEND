@@ -1,0 +1,3325 @@
+linetgitonga:  I WANT TO INTEGRATE PAYMENT FOR THE DIFFERENT SERVICES 
+
+Workspace: Sure, here's a proposed directory structure for a payment integration project:
+
+
+
+Create Workspace...
+
+linetgitonga: I WOULD LIKE TO FOCUS WITH MPSA AND DARAJA API FIRST
+
+Workspace: Sure, here's a proposed directory structure for a Django payments project with M-Pesa and Daraja API integration:
+
+
+
+Create Workspace...
+
+linetgitonga: I WOULD ALSO LIKE TO INTEGRATE A FaIS retrieval Augmaented model . That will act as a chatbot for the users . help me 
+
+GitHub Copilot: To integrate a **FAISS Retrieval-Augmented Generation (RAG) chatbot** for your users, you’ll need to:
+
+1. **Set up FAISS** for vector search.
+2. **Store and index your knowledge base** (FAQs, documents, etc.).
+3. **Integrate with a language model** (like OpenAI GPT or similar) for answer generation.
+4. **Expose a chatbot API endpoint** in Django.
+
+Here’s a high-level plan and code scaffolding:
+
+---
+
+#### 1. Install Required Packages
+
+```sh
+pip install faiss-cpu openai
+```
+
+---
+
+#### 2. Create a Django App for the Chatbot
+
+```sh
+python manage.py startapp chatbot
+```
+
+---
+
+#### 3. Example: chatbot/faiss_utils.py
+
+````python
+import faiss
+import numpy as np
+
+class FaissIndex:
+    def __init__(self, dim):
+        self.index = faiss.IndexFlatL2(dim)
+        self.texts = []
+
+    def add(self, embeddings, texts):
+        self.index.add(np.array(embeddings).astype('float32'))
+        self.texts.extend(texts)
+
+    def search(self, query_embedding, top_k=3):
+        D, I = self.index.search(np.array([query_embedding]).astype('float32'), top_k)
+        return [self.texts[i] for i in I[0]]
+````
+
+---
+
+#### 4. Example: chatbot/views.py
+
+````python
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .faiss_utils import FaissIndex
+import openai
+
+# Load your FAISS index and texts at startup (or from DB)
+faiss_index = FaissIndex(dim=1536)  # Example dimension for OpenAI embeddings
+
+class ChatbotAPIView(APIView):
+    def post(self, request):
+        user_query = request.data.get("query")
+        # Get embedding for user_query (use OpenAI or your model)
+        embedding = get_embedding(user_query)
+        # Retrieve relevant texts
+        docs = faiss_index.search(embedding)
+        # Generate answer using LLM
+        answer = generate_answer(user_query, docs)
+        return Response({"answer": answer})
+
+def get_embedding(text):
+    # Example using OpenAI
+    response = openai.Embedding.create(input=text, model="text-embedding-ada-002")
+    return response['data'][0]['embedding']
+
+def generate_answer(query, docs):
+    prompt = f"Context: {' '.join(docs)}\n\nQuestion: {query}\nAnswer:"
+    response = openai.Completion.create(
+        engine="gpt-3.5-turbo-instruct",
+        prompt=prompt,
+        max_tokens=150
+    )
+    return response.choices[0].text.strip()
+````
+
+---
+
+#### 5. Add URL Route
+
+````python
+from django.urls import path
+from .views import ChatbotAPIView
+
+urlpatterns = [
+    path("chat/", ChatbotAPIView.as_view(), name="chatbot"),
+]
+````
+
+---
+
+#### 6. Include in Project URLs
+
+````python
+# ...existing code...
+path("api/chatbot/", include("chatbot.urls")),
+# ...existing code...
+````
+
+---
+
+**Next Steps:**
+- Prepare your knowledge base and generate embeddings for each document.
+- Add those embeddings and texts to your FAISS index.
+- Secure your API keys and endpoints.
+
+Let me know if you want a more detailed step-by-step for any part!
+
+linetgitonga: my data will be gotten from a json file with info on diseases, vaccines such  . And then I would also like it to be connected to an llm from azure 
+
+GitHub Copilot: Great! Here’s how you can extend your FAISS integration to:
+
+1. **Load data from a JSON file** (with diseases, vaccines, etc.).
+2. **Generate embeddings using Azure OpenAI**.
+3. **Add them to your FAISS index**.
+4. **Query the index and use Azure OpenAI for answer generation**.
+
+---
+
+### 1. Loading Data & Building the Index
+
+````python
+import faiss
+import numpy as np
+import json
+import requests
+
+class FaissIndex:
+    def __init__(self, dim):
+        self.index = faiss.IndexFlatL2(dim)
+        self.texts = []
+
+    def add(self, embeddings, texts):
+        self.index.add(np.array(embeddings).astype('float32'))
+        self.texts.extend(texts)
+
+    def search(self, query_embedding, top_k=3):
+        D, I = self.index.search(np.array([query_embedding]).astype('float32'), top_k)
+        return [self.texts[i] for i in I[0]]
+
+def load_data_and_build_index(json_path, azure_endpoint, azure_key, embedding_model, dim):
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    texts = [item['info'] for item in data]  # Adjust key as per your JSON structure
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+    index = FaissIndex(dim)
+    index.add(embeddings, texts)
+    return index
+
+def get_azure_embedding(text, endpoint, api_key, deployment_name):
+    url = f"{endpoint}/openai/deployments/{deployment_name}/embeddings?api-version=2023-05-15"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": api_key
+    }
+    payload = {"input": text}
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['data'][0]['embedding']
+````
+
+---
+
+### 2. Using the Index in Your View
+
+````python
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .faiss_utils import load_data_and_build_index, get_azure_embedding
+import os
+
+# Load index at startup (adjust paths and keys)
+AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+AZURE_KEY = os.getenv("AZURE_OPENAI_KEY")
+EMBEDDING_MODEL = "your-embedding-deployment-name"
+INDEX_DIM = 1536  # Or as per your Azure embedding model
+JSON_PATH = "path/to/your/data.json"
+
+faiss_index = load_data_and_build_index(JSON_PATH, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+
+class ChatbotAPIView(APIView):
+    def post(self, request):
+        user_query = request.data.get("query")
+        embedding = get_azure_embedding(user_query, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL)
+        docs = faiss_index.search(embedding)
+        answer = generate_azure_answer(user_query, docs)
+        return Response({"answer": answer})
+
+def generate_azure_answer(query, docs):
+    # Call Azure OpenAI completion endpoint
+    url = f"{AZURE_ENDPOINT}/openai/deployments/your-gpt-deployment/completions?api-version=2023-05-15"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": AZURE_KEY
+    }
+    prompt = f"Context: {' '.join(docs)}\n\nQuestion: {query}\nAnswer:"
+    payload = {
+        "prompt": prompt,
+        "max_tokens": 150
+    }
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['choices'][0]['text'].strip()
+````
+
+---
+
+**Adjust the JSON key** (`item['info']`) to match your data structure.  
+**Set your Azure deployment names and keys** in environment variables or Django settings.
+
+Let me know if you want a ready-to-use JSON loader or more details on the Azure API calls!
+
+linetgitonga: those are my keys
+
+GitHub Copilot: Great! You have your keys set up in your .env file.  
+**Next steps:**
+
+1. **Load your keys in Django** using `python-dotenv` or `django-environ`.
+2. **Use them in your FAISS and Azure OpenAI integration.**
+
+---
+
+### 1. Install `python-dotenv` (if not already)
+
+```sh
+pip install python-dotenv
+```
+
+---
+
+### 2. Load Environment Variables in Django
+
+Add this to your `settings.py`:
+
+````python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # take environment variables from .env.
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
+AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")  # Add this to your .env if not present
+````
+
+---
+
+### 3. Use Keys in Your Code
+
+Update your FAISS and chatbot code to use `settings.AZURE_OPENAI_KEY` and `settings.AZURE_OPENAI_ENDPOINT`:
+
+````python
+from django.conf import settings
+
+def get_azure_embedding(text, deployment_name):
+    url = f"{settings.AZURE_OPENAI_ENDPOINT}/openai/deployments/{deployment_name}/embeddings?api-version=2023-05-15"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": settings.AZURE_OPENAI_KEY
+    }
+    payload = {"input": text}
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['data'][0]['embedding']
+````
+
+---
+
+**Tip:**  
+Never share your API keys publicly.  
+Make sure your .env is in your `.gitignore`.
+
+Let me know if you want a full example of the chatbot view or help with your JSON data loader!
+
+linetgitonga: GENERATE THE URL  ENDPOINTS FOR THE PAYMENT AND CHATBOT WITH INPUTS AND EXPECTED OUTPUS
+
+GitHub Copilot: Here are the **API endpoints** for both payments and chatbot, including their inputs and expected outputs:
+
+---
+
+## Payments Endpoints
+
+### 1. `POST /payments/initiate-payment/`
+**Input (JSON):**
+```json
+{
+  "amount": 100.00,
+  "service_id": 1,
+  "phone_number": "+254712345678"
+}
+```
+**Output (JSON):**
+```json
+{
+  "success": true,
+  "payment_link": "https://gateway.example.com/pay?amount=100.00&service_id=1&id=abc123",
+  "transaction_id": "TX123456"
+}
+```
+
+---
+
+### 2. `POST /payments/payment-callback/`
+**Input (JSON from payment gateway):**
+```json
+{
+  "transaction_id": "TX123456",
+  "status": "COMPLETED",
+  "amount": 100.00,
+  "signature": "abcdef123456"
+}
+```
+**Output (JSON):**
+```json
+{
+  "success": true,
+  "message": "Payment status updated"
+}
+```
+
+---
+
+### 3. `GET /payments/payment-status/<transaction_id>/`
+**Input:**  
+No body required.  
+**Output (JSON):**
+```json
+{
+  "transaction_id": "TX123456",
+  "status": "COMPLETED",
+  "amount": 100.00,
+  "service": "Consultation"
+}
+```
+
+---
+
+## Chatbot Endpoint
+
+### 4. `POST /chatbot/chat/`
+**Input (JSON):**
+```json
+{
+  "query": "What vaccines are recommended for children?"
+}
+```
+**Output (JSON):**
+```json
+{
+  "answer": "Children should receive vaccines such as BCG, polio, DPT, measles, and others as recommended by the Ministry of Health."
+}
+```
+
+---
+
+Let me know if you need OpenAPI/Swagger schema or more details!
+
+linetgitonga: .py", line 2, in <module>
+    from .views import initiate_payment, payment_callback, payment_status
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\views.py", line 7, in <module>
+    from .mpesa.mpesa_services import initiate_payment, check_payment_status
+ImportError: cannot import name 'initiate_payment' from 'payments.mpesa.mpesa_services' (C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\mpesa\mpesa_services.py)
+
+
+
+GitHub Copilot: You are getting this error because in your mpesa_services.py, you have defined `MpesaService` as a class, but you are trying to import `initiate_payment` and `check_payment_status` as if they are standalone functions. They do not exist at the module level.
+
+---
+
+## How to Fix
+
+**Option 1: Use the MpesaService class in your views**
+
+Update your views.py to use the class:
+
+````python
+from .mpesa.mpesa_services import MpesaService
+
+mpesa_service = MpesaService()
+
+@api_view(['POST'])
+def initiate_payment_view(request):
+    amount = request.data.get('amount')
+    phone_number = request.data.get('phone_number')
+    response = mpesa_service.initiate_payment(amount, phone_number)
+    return JsonResponse(response)
+````
+
+**Remove these lines:**
+```python
+from .mpesa.mpesa_services import initiate_payment, check_payment_status
+```
+
+---
+
+**Option 2: If you want to keep function imports, define them in mpesa_services.py:**
+
+````python
+from .mpesa_services import MpesaService
+
+def initiate_payment(amount, phone_number):
+    return MpesaService().initiate_payment(amount, phone_number)
+````
+
+---
+
+## Summary
+
+- **Use the `MpesaService` class directly in your views.**
+- **Remove the incorrect import lines.**
+- **Call methods on an instance of `MpesaService`.**
+
+Let me know if you want a full example of the payment initiation endpoint!
+
+linetgitonga:     from .mpesa.mpesa_services import initiate_payment, check_payment_status
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\mpesa\mpesa_services.py", line 4, in <module>      
+    from .mpesa_services import MpesaService
+ImportError: cannot import name 'MpesaService' from partially initialized module 'payments.mpesa.mpesa_services' (most likely due to a circular import) (C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\mpesa\mpesa_services.py)        
+
+
+GitHub Copilot: You have a **circular import** in your mpesa_services.py:
+
+```python
+from .mpesa_services import MpesaService
+```
+
+This line is importing `MpesaService` from itself, which causes the error.
+
+---
+
+## **How to Fix**
+
+**Delete this line** from the top of your file:
+
+```python
+from .mpesa_services import MpesaService
+```
+
+Your file should start like this:
+
+````python
+from django.conf import settings
+import requests
+import json
+
+class MpesaService:
+    # ...existing code...
+````
+
+---
+
+**Summary:**  
+Remove the self-import.  
+If you need to use `MpesaService`, just use the class directly in this file or import it in other files as needed.
+
+Let me know if you need help with the rest of your payment integration!
+
+linetgitonga:   File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\views.py", line 7, in <module>
+    from .mpesa.mpesa_services import initiate_payment, check_payment_status
+ImportError: cannot import name 'initiate_payment' from 'payments.mpesa.mpesa_services' (C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\mpesa\mpesa_services.py)
+
+
+GitHub Copilot: You are getting this error because there are **no functions named `initiate_payment` or `check_payment_status`** defined at the top level of mpesa_services.py.  
+Instead, you have a class `MpesaService` with a method `initiate_payment`.
+
+---
+
+## **How to Fix**
+
+### 1. **Remove the incorrect import in your `views.py`:**
+```python
+from .mpesa.mpesa_services import initiate_payment, check_payment_status  # ❌ REMOVE THIS LINE
+```
+
+### 2. **Import the class instead:**
+```python
+from .mpesa.mpesa_services import MpesaService
+```
+
+### 3. **Use the class in your view:**
+````python
+from .mpesa.mpesa_services import MpesaService
+
+@api_view(['POST'])
+def initiate_payment_view(request):
+    amount = request.data.get('amount')
+    phone_number = request.data.get('phone_number')
+    mpesa = MpesaService()
+    response = mpesa.initiate_payment(amount, phone_number)
+    return JsonResponse(response)
+````
+
+---
+
+**Summary:**  
+- Only import `MpesaService` from mpesa_services.py.
+- Use `MpesaService().initiate_payment(...)` in your views.
+- Remove any import of `initiate_payment` or `check_payment_status` as standalone functions.
+
+Let me know if you want a full example for your payment initiation endpoint!
+
+linetgitonga:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\urls.py", line 19, in <module>
+    path('api/payments/', include('payments.urls')),
+                          ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\urls.py", line 2, in <module>
+    from .views import initiate_payment, payment_callback, payment_status
+ImportError: cannot import name 'initiate_payment' from 'payments.views' (C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\payments\views.py)
+
+
+GitHub Copilot: Your error is because you are trying to import `initiate_payment` from `payments.views`, but **there is no function named `initiate_payment`** in your views.py.  
+You have a function named `initiate_payment_view`.
+
+---
+
+## **How to Fix**
+
+**In your urls.py, change this:**
+```python
+from .views import initiate_payment, payment_callback, payment_status
+```
+**To this:**
+```python
+from .views import initiate_payment_view, payment_callback, payment_status
+```
+
+**And update your URL pattern:**
+```python
+urlpatterns = [
+    path('initiate-payment/', initiate_payment_view, name='initiate_payment'),
+    path('payment-callback/', payment_callback, name='payment_callback'),
+    path('payment-status/<str:payment_id>/', payment_status, name='payment_status'),
+]
+```
+
+---
+
+**Summary:**  
+- Import the correct function name: `initiate_payment_view`.
+- Make sure your URL pattern uses the correct view.
+
+This will resolve the `ImportError`.
+
+linetgitonga:  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 21, in load_data_and_build_index
+    with open(json_path, 'r', encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/clinical_data.json
+
+GitHub Copilot: Your error is because your code is trying to open clinical_data.json, but your actual file is at:
+```
+c:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\data\clinical_data.json
+```
+
+---
+
+## **How to Fix**
+
+### 1. **Update the JSON_PATH in your chatbot/views.py:**
+
+Change this line:
+```python
+JSON_PATH = os.getenv("CLINICAL_DATA_JSON_PATH", "../data/clinical_data.json")
+```
+**To:**
+```python
+JSON_PATH = os.path.join(os.path.dirname(__file__), "data", "clinical_data.json")
+```
+
+This will always use the correct path relative to your views.py file.
+
+---
+
+### 2. **If you want to use an environment variable, set the full Windows path:**
+In your .env:
+```
+CLINICAL_DATA_JSON_PATH=C:/Users/LINET/Desktop/PROJECTS/MAMASCAN/MAMASCAN_BACKEND/chatbot/data/clinical_data.json
+```
+And in your code:
+```python
+JSON_PATH = os.getenv("CLINICAL_DATA_JSON_PATH")
+```
+
+---
+
+### 3. **Recommended: Use the relative path fix above for portability.**
+
+---
+
+**Summary:**  
+- Use the correct path to your JSON file.
+- Prefer `os.path.join(os.path.dirname(__file__), "data", "clinical_data.json")` for reliability.
+
+Let me know if you want the full corrected code block!
+
+linetgitonga: DPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 23, in load_data_and_build_index
+    texts = [item['info'] for item in data]  # Adjust key as per your JSON structure
+             ~~~~^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+
+GitHub Copilot: Your error is because your JSON file is **not a list of dicts**—it is a dictionary with keys like `"ResourcesInventoryCostSheet"` and `"TreatmentCostsSheet"`, each mapping to a list of dicts.  
+Your code expects a flat list of dicts with an `'info'` key, but your data structure is nested.
+
+---
+
+## **How to Fix**
+
+You need to:
+1. **Flatten all records** from all sheets into a single list of texts.
+2. **Choose what text to embed** (e.g., concatenate relevant fields).
+
+---
+
+### Example Fix for faiss_utils.py
+
+Replace your `load_data_and_build_index` function with this:
+
+````python
+def load_data_and_build_index(json_path, azure_endpoint, azure_key, embedding_model, dim):
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    # Flatten all records from all sheets
+    texts = []
+    for sheet in data.values():
+        for item in sheet:
+            # Concatenate all values into a single string for embedding
+            text = " | ".join(f"{k}: {v}" for k, v in item.items())
+            texts.append(text)
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+    index = FaissIndex(dim)
+    index.add(embeddings, texts)
+    return index
+````
+
+---
+
+**Now your chatbot will embed and search over all records in your JSON file.**  
+You can further customize the `text` construction to focus on specific fields if needed.
+
+Let me know if you want to filter or format the text differently!
+
+linetgitonga:    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_azure_embedding() takes 2 positional arguments but 4 were given
+
+
+GitHub Copilot: Your error is because `get_azure_embedding` is defined as:
+```python
+def get_azure_embedding(text, deployment_name):
+```
+but you are calling it with four arguments:
+```python
+get_azure_embedding(text, azure_endpoint, azure_key, embedding_model)
+```
+
+---
+
+## **How to Fix**
+
+Update your `get_azure_embedding` function to accept all four arguments and use them:
+
+````python
+def get_azure_embedding(text, azure_endpoint, azure_key, deployment_name):
+    url = f"{azure_endpoint}/openai/deployments/{deployment_name}/embeddings?api-version=2023-05-15"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": azure_key
+    }
+    payload = {"input": text}
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['data'][0]['embedding']
+````
+
+Now your call in the list comprehension will work as expected.
+
+---
+
+**Summary:**  
+- Make sure the function signature matches how you call it.
+- Use the passed-in `azure_endpoint` and `azure_key` instead of `settings`.
+
+Let me know if you need further help!
+
+linetgitonga:  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request    
+    p.prepare(
+    ~~~~~~~~~^
+        method=request.method.upper(),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        hooks=merge_hooks(request.hooks, self.hooks),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 367, in prepare
+    self.prepare_url(url, params)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 438, in prepare_url
+    raise MissingSchema(
+    ...<2 lines>...
+    )
+requests.exceptions.MissingSchema: Invalid URL 'None/openai/deployments/your-embedding-deployment-name/embeddings?api-version=2023-05-15': No scheme supplied. Perhaps you meant https://None/openai/deployments/your-embedding-deployment-name/embeddings?api-version=2023-05-15?
+
+
+GitHub Copilot: This error means that your `azure_endpoint` variable is `None`, so the URL you are building is invalid (`None/openai/deployments/...`).  
+This usually happens because the environment variable `AZURE_OPENAI_ENDPOINT` is **not set** or **not loaded**.
+
+---
+
+## **How to Fix**
+
+1. **Set the environment variable** in your .env file:
+   ```
+   AZURE_OPENAI_ENDPOINT=https://<your-azure-endpoint>
+   ```
+   (Replace `<your-azure-endpoint>` with your actual Azure OpenAI endpoint URL.)
+
+2. **Make sure you are loading environment variables** in your Django settings:
+   ```python
+   import os
+   from dotenv import load_dotenv
+   load_dotenv()  # This should be near the top of your settings.py
+
+   AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+   ```
+
+3. **Check your code where you set `AZURE_ENDPOINT`:**
+   ```python
+   AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+   ```
+   Make sure this is not returning `None`.
+
+4. **Restart your server** after making changes to .env.
+
+---
+
+**Summary:**  
+- Set `AZURE_OPENAI_ENDPOINT` in your .env with the full URL (including `https://`).
+- Ensure your code loads it correctly.
+- Restart your app.
+
+Let me know if you need help finding your Azure endpoint or want an example!
+
+linetgitonga: Use the details c
+            api_version="2024-12-01-preview",
+            azure_endpoint="https://linet0680637526.openai.azure.com/",
+            api_key=os.getenv('AZURE_OPENAI_KEY')
+        )
+        self.deployment = "gpt-4.1"
+
+GitHub Copilot: Here’s how you can update your code to use your actual Azure endpoint, deployment, and API version for the completion call:
+
+````python
+import requests
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .faiss_utils import load_data_and_build_index, get_azure_embedding
+import os
+
+# Load index at startup (adjust paths and keys)
+AZURE_ENDPOINT = "https://linet0680637526.openai.azure.com/"
+AZURE_KEY = os.getenv("AZURE_OPENAI_KEY")
+EMBEDDING_MODEL = "your-embedding-deployment-name"  # Update to your actual embedding deployment name
+COMPLETION_DEPLOYMENT = "gpt-4.1"  # Your actual completion deployment name
+API_VERSION = "2024-12-01-preview"
+INDEX_DIM = 1536  # Or as per your Azure embedding model
+JSON_PATH = os.path.join(os.path.dirname(__file__), "data", "clinical_data.json")
+faiss_index = load_data_and_build_index(JSON_PATH, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+
+class ChatbotAPIView(APIView):
+    def post(self, request):
+        user_query = request.data.get("query")
+        embedding = get_azure_embedding(user_query, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL)
+        docs = faiss_index.search(embedding)
+        answer = generate_azure_answer(user_query, docs)
+        return Response({"answer": answer})
+
+def generate_azure_answer(query, docs):
+    url = f"{AZURE_ENDPOINT}openai/deployments/{COMPLETION_DEPLOYMENT}/completions?api-version={API_VERSION}"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": AZURE_KEY
+    }
+    prompt = f"Context: {' '.join(docs)}\n\nQuestion: {query}\nAnswer:"
+    payload = {
+        "prompt": prompt,
+        "max_tokens": 150
+    }
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['choices'][0]['text'].strip()
+````
+
+**Make sure to:**
+- Replace `"your-embedding-deployment-name"` with your actual embedding deployment name.
+- Ensure `"gpt-4.1"` matches your Azure OpenAI deployment name for completions.
+- Your .env must have the correct `AZURE_OPENAI_KEY`.
+
+This will use your Azure endpoint, deployment, and API version as you requested.
+
+linetgitonga: change the credentials to match with these ................................import os
+from openai import AzureOpenAI
+
+endpoint = "https://mamascan-resource.cognitiveservices.azure.com/"
+model_name = "gpt-4.1-nano"
+deployment = "gpt-4.1-nano"
+
+subscription_key = "<your-api-key>"
+api_version = "2024-12-01-preview"
+
+client = AzureOpenAI(
+    api_version=api_version,
+    azure_endpoint=endpoint,
+    api_key=subscription_key,
+)
+
+response = client.chat.completions.create(
+    stream=True,
+    messages=[
+        {
+            "role": "system",
+            "content": "You are a helpful assistant.",
+        },
+        {
+            "role": "user",
+            "content": "I am going to Paris, what should I see?",
+        }
+    ],
+    max_completion_tokens=800,
+    temperature=1.0,
+    top_p=1.0,
+    frequency_penalty=0.0,
+    presence_penalty=0.0,
+    model=deployment,
+)
+
+for update in response:
+    if update.choices:
+        print(update.choices[0].delta.content or "", end="")
+
+client.close()
+
+GitHub Copilot: Here’s how to update your chatbot code to use the new Azure OpenAI credentials and the `openai` Python SDK (with streaming support):
+
+````python
+import os
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .faiss_utils import load_data_and_build_index, get_azure_embedding
+from openai import AzureOpenAI
+
+# Azure OpenAI credentials
+AZURE_ENDPOINT = "https://mamascan-resource.cognitiveservices.azure.com/"
+AZURE_KEY = os.getenv("AZURE_OPENAI_KEY")  # Set this in your .env
+EMBEDDING_MODEL = "your-embedding-deployment-name"  # Update as needed
+DEPLOYMENT = "gpt-4.1-nano"
+MODEL_NAME = "gpt-4.1-nano"
+API_VERSION = "2024-12-01-preview"
+INDEX_DIM = 1536
+JSON_PATH = os.path.join(os.path.dirname(__file__), "data", "clinical_data.json")
+
+faiss_index = load_data_and_build_index(JSON_PATH, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+
+# Initialize AzureOpenAI client
+client = AzureOpenAI(
+    api_version=API_VERSION,
+    azure_endpoint=AZURE_ENDPOINT,
+    api_key=AZURE_KEY,
+)
+
+class ChatbotAPIView(APIView):
+    def post(self, request):
+        user_query = request.data.get("query")
+        embedding = get_azure_embedding(user_query, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL)
+        docs = faiss_index.search(embedding)
+        answer = generate_azure_answer(user_query, docs)
+        return Response({"answer": answer})
+
+def generate_azure_answer(query, docs):
+    system_prompt = "You are a helpful assistant."
+    user_prompt = f"Context: {' '.join(docs)}\n\nQuestion: {query}\nAnswer:"
+    response = client.chat.completions.create(
+        stream=False,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        max_completion_tokens=800,
+        temperature=1.0,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0,
+        model=DEPLOYMENT,
+    )
+    # For non-streaming, get the full answer
+    return response.choices[0].message.content.strip()
+
+# Optionally, close the client on shutdown (not strictly needed for stateless API)
+# client.close()
+````
+
+**What changed:**
+- Uses your new endpoint, deployment, and model.
+- Uses the `openai` SDK’s `AzureOpenAI` client.
+- Uses the correct prompt structure for chat completions.
+- Reads the API key from your environment variable.
+
+**Make sure your .env contains:**
+```
+AZURE_OPENAI_KEY=your-azure-openai-key-here
+```
+
+Let me know if you want streaming support in the API response!
+
+linetgitonga: File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked    
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\urls.py", line 2, in <module>
+    from .views import ChatbotAPIView
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 17, in <module>
+    faiss_index = load_data_and_build_index(JSON_PATH, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 30, in load_data_and_build_index
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 45, in get_azure_embedding
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: PermissionDenied for url: https://mamascan-resource.cognitiveservices.azure.com//openai/deployments/gpt-4.1-nano/embeddings?api-version=2023-05-15
+
+
+GitHub Copilot: The error `401 Client Error: PermissionDenied` means **your Azure API key is invalid, missing, or does not have access to the deployment**.
+
+### Checklist to fix:
+
+1. **Check your .env file:**
+   - Make sure you have the correct key:
+     ```
+     AZURE_OPENAI_KEY=your-actual-azure-openai-key
+     ```
+   - Do **not** use `<your-api-key>` or a placeholder.
+
+2. **Restart your server** after updating `.env`.
+
+3. **Check your deployment name:**
+   - The deployment name in your code (`gpt-4.1-nano`) must match exactly with the deployment name in your Azure OpenAI portal.
+
+4. **Check your endpoint:**
+   - Your endpoint should be exactly as shown in Azure, e.g.:
+     ```
+     https://linet0680637526.openai.azure.com/
+     ```
+
+5. **Check your API version:**
+   - Use the API version that matches your deployment (e.g., `2024-12-01-preview`).
+
+6. **Check that your key has access to the resource.**
+   - Go to Azure Portal → your OpenAI resource → Keys and Endpoint.
+   - Copy the key and endpoint exactly.
+
+---
+
+### Example: How your settings should look
+
+```python
+AZURE_ENDPOINT = "https://linet0680637526.openai.azure.com/"
+AZURE_KEY = os.getenv("AZURE_OPENAI_KEY")
+DEPLOYMENT = "gpt-4.1-nano"  # Must match Azure deployment name
+API_VERSION = "2024-12-01-preview"
+```
+
+---
+
+### If you want to test your key quickly:
+
+```python
+import os
+ requestsimport
+
+endpoint = "https://linet0680637526.openai.azure.com/"
+deployment = "gpt-4.1-nano"
+api_version = "2024-12-01-preview"
+api_key = os.getenv("AZURE_OPENAI_KEY")
+
+url = f"{endpoint}openai/deployments/{deployment}/embeddings?api-version={api_version}"
+headers = {"Content-Type": "application/json", "api-key": api_key}
+payload = {"input": "test"}
+
+response = requests.post(url, headers=headers, json=payload)
+print(response.status_code, response.text)
+```
+- If you get `401`, your key or deployment is wrong.
+- If you get `200`, it works.
+
+---
+
+**Summary:**  
+- Double-check your API key, endpoint, and deployment name.
+- Make sure your `.env` is loaded and your server is restarted.
+
+Let me know if you need help finding your Azure key or deployment name!- If you get `401`, your key or deployment is wrong.
+- If you get `200`, it works.
+
+---
+
+**Summary:**  
+- Double-check your API key, endpoint, and deployment name.
+- Make sure your `.env` is loaded and your server is restarted.
+
+Let me know if you need help finding your Azure key or deployment name!
+
+linetgitonga: https://mamascan-resource.cognitiveservices.azure.com/openai/deployments/gpt-4.1-nano/chat/completions?api-version=2025-01-01-preview  THIS SHOULD BE THE TARGET URL
+
+GitHub Copilot: Here’s how to update your code to use the **correct target URL** and API version for chat completions:
+
+````python
+import os
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .faiss_utils import load_data_and_build_index, get_azure_embedding
+from openai import AzureOpenAI
+
+# Azure OpenAI credentials
+AZURE_ENDPOINT = "https://mamascan-resource.cognitiveservices.azure.com"
+AZURE_KEY = os.getenv("AZURE_OPENAI_KEY")  # Set this in your .env
+EMBEDDING_MODEL = "gpt-4.1-nano"  # Update as needed
+DEPLOYMENT = "gpt-4.1-nano"
+MODEL_NAME = "gpt-4.1-nano"
+API_VERSION = "2025-01-01-preview"  # <-- Updated API version
+INDEX_DIM = 1536
+JSON_PATH = os.path.join(os.path.dirname(__file__), "data", "clinical_data.json")
+
+faiss_index = load_data_and_build_index(JSON_PATH, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+
+# Initialize AzureOpenAI client
+client = AzureOpenAI(
+    api_version=API_VERSION,
+    azure_endpoint=AZURE_ENDPOINT,
+    api_key=AZURE_KEY,
+)
+
+class ChatbotAPIView(APIView):
+    def post(self, request):
+        user_query = request.data.get("query")
+        embedding = get_azure_embedding(user_query, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL)
+        docs = faiss_index.search(embedding)
+        answer = generate_azure_answer(user_query, docs)
+        return Response({"answer": answer})
+
+def generate_azure_answer(query, docs):
+    system_prompt = "You are a helpful assistant."
+    user_prompt = f"Context: {' '.join(docs)}\n\nQuestion: {query}\nAnswer:"
+    response = client.chat.completions.create(
+        stream=False,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        max_completion_tokens=800,
+        temperature=1.0,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0,
+        model=DEPLOYMENT,
+    )
+    return response.choices[0].message.content.strip()
+````
+
+**Key changes:**
+- Set `API_VERSION = "2025-01-01-preview"` to match your required endpoint.
+- The `openai` SDK will now target:
+  ```
+  https://mamascan-resource.cognitiveservices.azure.com/openai/deployments/gpt-4.1-nano/chat/completions?api-version=2025-01-01-preview
+  ```
+
+**Make sure your .env contains the correct `AZURE_OPENAI_KEY`.**
+
+Let me know if you need a raw `requests` example or further customization!
+
+linetgitonga: Watching for file changes with StatReloader
+Performing system checks...
+
+AI model file not found, using fallback logic
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "C:\Python313\Lib\threading.py", line 1041, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Python313\Lib\threading.py", line 992, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\commands\runserver.py", line 134, in inner_run
+    self.check(**check_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 492, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\registry.py", line 89, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\urls.py", line 26, in check_resolver
+    return check_method()
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 531, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 718, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 711, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\urls.py", line 20, in <module>
+    path("api/chatbot/", include("chatbot.urls")),
+                         ~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\urls.py", line 2, in <module>
+    from .views import ChatbotAPIView
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 17, in <module>
+    faiss_index = load_data_and_build_index(JSON_PATH, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line
+ 30, in load_data_and_build_index
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line
+ 45, in get_azure_embedding
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: PermissionDenied for url: https://mamascan-resource.cognitiveservices.azure.com/openai/deployments/gpt-4.1-nano/embeddings?api-version=2023-05-15
+(ProjectsVenv) 
+LINET@DESKTOP-HNTFF2S MINGW64 ~/Desktop/PROJECTS/MAMASCAN/MAMASCAN_BACKEND (master)
+$ python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+AI model file not found, using fallback logic
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "C:\Python313\Lib\threading.py", line 1041, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Python313\Lib\threading.py", line 992, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\commands\runserver.py", line 134, in inner_run
+    self.check(**check_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 492, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\registry.py", line 89, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\urls.py", line 26, in check_resolver
+    return check_method()
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 531, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 718, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 711, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\urls.py", line 20, in <module>
+    path("api/chatbot/", include("chatbot.urls")),
+                         ~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\urls.py", line 2, in <module>
+    from .views import ChatbotAPIView
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 17, in <module>
+    faiss_index = load_data_and_build_index(JSON_PATH, AZURE_ENDPOINT, AZURE_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line
+ 30, in load_data_and_build_index
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line
+ 45, in get_azure_embedding
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: PermissionDenied for url: https://mamascan-resource.cognitiveservices.azure.com/openai/deployments/gpt-4.1-nano/embeddings?api-version=2023-05-15
+
+
+GitHub Copilot: You are still getting a `401 Client Error: PermissionDenied` for your embeddings endpoint.  
+**This means your Azure API key is invalid, missing, or does not have access to the deployment.**
+
+---
+
+## How to Fix
+
+### 1. **Check your API key**
+- Go to the [Azure Portal](https://portal.azure.com/), open your OpenAI resource, and copy the correct key.
+- In your .env file, set:
+  ```
+  AZURE_OPENAI_KEY=your-actual-azure-openai-key
+  ```
+- **Restart your Django server** after updating .env.
+
+### 2. **Check your embedding deployment**
+- You are using `"gpt-4.1-nano"` for both chat and embeddings. This is likely incorrect.
+- **You must create a separate embedding deployment** in Azure (e.g., `text-embedding-ada-002` or similar).
+- In your Azure OpenAI resource, go to Deployments and deploy an embedding model.
+- Set `EMBEDDING_MODEL` in your code to the embedding deployment name, e.g.:
+  ```python
+  EMBEDDING_MODEL = "your-embedding-deployment-name"
+  ```
+
+### 3. **Check your endpoint and API version**
+- Your endpoint for chat is correct:
+  ```
+  https://mamascan-resource.cognitiveservices.azure.com/openai/deployments/gpt-4.1-nano/chat/completions?api-version=2025-01-01-preview
+  ```
+- **But for embeddings, you must use the embedding deployment name and a supported API version.**
+
+### 4. **Example: Correct usage for embeddings**
+```python
+EMBEDDING_MODEL = "your-embedding-deployment-name"  # NOT gpt-4.1-nano
+EMBEDDING_API_VERSION = "2023-05-15"  # Or as required by Azure
+
+def get_azure_embedding(text, azure_endpoint, azure_key, deployment_name):
+    url = f"{azure_endpoint}/openai/deployments/{deployment_name}/embeddings?api-version={EMBEDDING_API_VERSION}"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": azure_key
+    }
+    payload = {"input": text}
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['data'][0]['embedding']
+```
+
+---
+
+## **Summary of what you must do:**
+1. **Set a valid Azure API key in your .env.**
+2. **Deploy an embedding model in Azure and use its deployment name for embeddings.**
+3. **Use the correct deployment name for chat and embeddings.**
+4. **Restart your server after changes.**
+
+---
+
+**You cannot use a chat model deployment (like `gpt-4.1-nano`) for embeddings.  
+You must deploy and use an embedding model for that endpoint.**
+
+Let me know if you need step-by-step help with Azure deployments or updating your code!
+
+linetgitonga:   raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://linet0680637526.cognitiveservices.azure.com//openai/deployments/gpt-4.1-nano/embeddings?api-version=2023-05-15  
+
+
+GitHub Copilot: You are getting a `400 Client Error: Bad Request` for the embeddings endpoint because you are using a **chat model deployment (`gpt-4.1-nano`) for embeddings**.  
+**You must use an embedding model deployment for embeddings.**
+
+---
+
+## **How to Fix**
+
+### 1. **Deploy an Embedding Model in Azure OpenAI**
+- Go to your Azure OpenAI resource in the Azure Portal.
+- Click **"Deployments"**.
+- Click **"Create new deployment"**.
+- Choose a model like `text-embedding-ada-002` (or any available embedding model).
+- Give it a deployment name, e.g., `embedding-ada-002`.
+
+### 2. **Update your code to use the embedding deployment**
+
+**In your views.py (and wherever you call embeddings):**
+```python
+EMBEDDING_MODEL = "embedding-ada-002"  # Use your actual embedding deployment name
+```
+
+**In your `faiss_utils.py` (embedding call):**
+```python
+def get_azure_embedding(text, azure_endpoint, azure_key, deployment_name):
+    url = f"{azure_endpoint}/openai/deployments/{deployment_name}/embeddings?api-version=2023-05-15"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": azure_key
+    }
+    payload = {"input": text}
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['data'][0]['embedding']
+```
+
+### 3. **Keep using your chat model for completions**
+
+- For chat completions, keep using `gpt-4.1-nano` and the chat endpoint.
+
+---
+
+## **Summary Table**
+
+| Purpose         | Deployment Name         | Model Type         | Example Use in Code         |
+|-----------------|------------------------|--------------------|-----------------------------|
+| Embeddings      | embedding-ada-002      | Embedding Model    | `EMBEDDING_MODEL = "embedding-ada-002"` |
+| Chat Completion | gpt-4.1-nano           | Chat Model         | `DEPLOYMENT = "gpt-4.1-nano"`           |
+
+---
+
+**You cannot use a chat model for embeddings.  
+You must deploy and use an embedding model for the embeddings endpoint.**
+
+---
+
+Let me know if you need step-by-step help with Azure or want to see the code after you deploy your embedding model!
+
+linetgitonga: I HAVE ADDED AN EMBEDDING MODEL AND IT HAS  DIFFERENT KEY FROM THE GPT MODEL . HOW DO I MANOUVER . 
+
+GitHub Copilot: If your **embedding model** and **chat model** are deployed under **different Azure OpenAI resources** (so they have different endpoints and API keys), you need to use the correct endpoint and key for each operation.
+
+Here’s how to do it:
+
+---
+
+## 1. **Add Both Keys and Endpoints to Your .env**
+
+```
+AZURE_CHAT_KEY=your-gpt-key
+AZURE_CHAT_ENDPOINT=https://your-gpt-resource.openai.azure.com/
+AZURE_EMBED_KEY=your-embedding-key
+AZURE_EMBED_ENDPOINT=https://your-embedding-resource.openai.azure.com/
+EMBEDDING_MODEL=your-embedding-deployment-name
+CHAT_MODEL=gpt-4.1-nano
+API_VERSION=2025-01-01-preview
+```
+
+---
+
+## 2. **Load Both in Your Code**
+
+````python
+import os
+
+# Chat model credentials
+CHAT_KEY = os.getenv("AZURE_CHAT_KEY")
+CHAT_ENDPOINT = os.getenv("AZURE_CHAT_ENDPOINT")
+CHAT_MODEL = os.getenv("CHAT_MODEL", "gpt-4.1-nano")
+
+# Embedding model credentials
+EMBED_KEY = os.getenv("AZURE_EMBED_KEY")
+EMBED_ENDPOINT = os.getenv("AZURE_EMBED_ENDPOINT")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
+API_VERSION = os.getenv("API_VERSION", "2025-01-01-preview")
+````
+
+---
+
+## 3. **Use the Correct Credentials for Each Call**
+
+**For embeddings:**
+````python
+def get_azure_embedding(text):
+    url = f"{EMBED_ENDPOINT}/openai/deployments/{EMBEDDING_MODEL}/embeddings?api-version=2023-05-15"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": EMBED_KEY
+    }
+    payload = {"input": text}
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['data'][0]['embedding']
+````
+
+**For chat completions:**
+````python
+from openai import AzureOpenAI
+
+chat_client = AzureOpenAI(
+    api_version=API_VERSION,
+    azure_endpoint=CHAT_ENDPOINT,
+    api_key=CHAT_KEY,
+)
+
+def generate_azure_answer(query, docs):
+    system_prompt = "You are a helpful assistant."
+    user_prompt = f"Context: {' '.join(docs)}\n\nQuestion: {query}\nAnswer:"
+    response = chat_client.chat.completions.create(
+        stream=False,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        max_completion_tokens=800,
+        temperature=1.0,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0,
+        model=CHAT_MODEL,
+    )
+    return response.choices[0].message.content.strip()
+````
+
+---
+
+## **Summary**
+
+- Use the **embedding resource’s endpoint and key** for embedding requests.
+- Use the **chat resource’s endpoint and key** for chat completions.
+- Keep both sets of credentials in your .env and load them separately.
+
+---
+
+Let me know if you want a full code block with these changes applied to your project!
+
+linetgitonga: GENERTAE THE WHOLE CODE
+
+GitHub Copilot: Here is a **complete version** of your views.py that supports different endpoints and keys for your embedding and chat models, using environment variables for both:
+
+````python
+import os
+import requests
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .faiss_utils import load_data_and_build_index
+
+from openai import AzureOpenAI
+
+# Embedding model credentials (for vector search)
+EMBED_ENDPOINT = os.getenv("AZURE_EMBED_ENDPOINT", "https://your-embedding-resource.openai.azure.com")
+EMBED_KEY = os.getenv("AZURE_EMBED_KEY")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "embedding-mamascan")
+EMBEDDING_API_VERSION = os.getenv("EMBEDDING_API_VERSION", "2023-05-15")
+
+# Chat model credentials (for completions)
+CHAT_ENDPOINT = os.getenv("AZURE_CHAT_ENDPOINT", "https://mamascan-resource.cognitiveservices.azure.com")
+CHAT_KEY = os.getenv("AZURE_CHAT_KEY")
+CHAT_DEPLOYMENT = os.getenv("CHAT_MODEL", "gpt-4.1-nano")
+CHAT_API_VERSION = os.getenv("API_VERSION", "2025-01-01-preview")
+
+INDEX_DIM = 1536
+JSON_PATH = os.path.join(os.path.dirname(__file__), "data", "clinical_data.json")
+
+def get_azure_embedding(text):
+    url = f"{EMBED_ENDPOINT}/openai/deployments/{EMBEDDING_MODEL}/embeddings?api-version={EMBEDDING_API_VERSION}"
+    headers = {
+        "Content-Type": "application/json",
+        "api-key": EMBED_KEY
+    }
+    payload = {"input": text}
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['data'][0]['embedding']
+
+faiss_index = load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+
+# Initialize AzureOpenAI client for chat
+chat_client = AzureOpenAI(
+    api_version=CHAT_API_VERSION,
+    azure_endpoint=CHAT_ENDPOINT,
+    api_key=CHAT_KEY,
+)
+
+def generate_azure_answer(query, docs):
+    system_prompt = "You are a helpful assistant."
+    user_prompt = f"Context: {' '.join(docs)}\n\nQuestion: {query}\nAnswer:"
+    response = chat_client.chat.completions.create(
+        stream=False,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        max_completion_tokens=800,
+        temperature=1.0,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0,
+        model=CHAT_DEPLOYMENT,
+    )
+    return response.choices[0].message.content.strip()
+
+class ChatbotAPIView(APIView):
+    def post(self, request):
+        user_query = request.data.get("query")
+        embedding = get_azure_embedding(user_query)
+        docs = faiss_index.search(embedding)
+        answer = generate_azure_answer(user_query, docs)
+        return Response({"answer": answer})
+````
+
+**What you need in your .env:**
+```
+AZURE_EMBED_ENDPOINT=https://your-embedding-resource.openai.azure.com
+AZURE_EMBED_KEY=your-embedding-key
+EMBEDDING_MODEL=your-embedding-deployment-name
+EMBEDDING_API_VERSION=2023-05-15
+
+AZURE_CHAT_ENDPOINT=https://mamascan-resource.cognitiveservices.azure.com
+AZURE_CHAT_KEY=your-chat-key
+CHAT_MODEL=gpt-4.1-nano
+API_VERSION=2025-01-01-preview
+```
+
+**This setup will use the correct key and endpoint for each model.**  
+Let me know if you need the same for your `faiss_utils.py` or want to support streaming!
+
+linetgitonga: show me the file location for the cancer_risk_model.pkl
+
+GitHub Copilot: Based on your settings:
+
+```python
+AI_MODEL_PATH = os.path.join(BASE_DIR, 'ai_models')
+RISK_PREDICTION_MODEL = 'cervical_cancer_risk_model.pkl'
+```
+
+Your `BASE_DIR` is set to the root of your Django project:
+```
+c:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND
+```
+
+So, the **full file location** for your model will be:
+```
+c:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\ai_models\cervical_cancer_risk_model.pkl
+```
+
+**Make sure the file exists at that path for your app to load it correctly.**
+
+linetgitonga: If one registerrs as a patient let the person be automatically added to the the clent class and if one  is a chv , clinician or Specialist let himor her be added as staff with all the necessary data automatically added
+
+GitHub Copilot: To achieve this, you should use Django signals to **automatically create a Client or Staff record** when a `User` is created, based on their `user_type`.  
+You can use the `post_save` signal for the `User` model.
+
+Below is a solution you can add to your models.py (or a new `signals.py` in the accounts app, but for simplicity, here it is in models.py):
+
+````python
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from appointments.models import Client, Staff, Service  # adjust import if needed
+
+@receiver(post_save, sender=User)
+def create_related_profile(sender, instance, created, **kwargs):
+    if created:
+        if instance.user_type == 'PATIENT':
+            # Create Client if not exists
+            Client.objects.get_or_create(
+                user=instance,
+                defaults={
+                    "first_name": instance.first_name,
+                    "last_name": instance.last_name,
+                    "email": instance.email,
+                    "phone": instance.phone_number,
+                    "date_of_birth": instance.date_of_birth,
+                }
+            )
+        elif instance.user_type in ['CHV', 'CLINICIAN', 'SPECIALIST']:
+            # Create Staff if not exists
+            Staff.objects.get_or_create(
+                user=instance,
+                defaults={
+                    "first_name": instance.first_name,
+                    "last_name": instance.last_name,
+                    "email": instance.email,
+                    "phone": instance.phone_number,
+                    "specialization": instance.specialization,
+                    "hire_date": instance.created_at.date() if instance.created_at else None,
+                }
+            )
+````
+
+**How it works:**
+- When a `User` is created:
+  - If `user_type` is `PATIENT`, a `Client` is created.
+  - If `user_type` is `CHV`, `CLINICIAN`, or `SPECIALIST`, a `Staff` is created.
+  - Data is copied from the `User` to the new `Client` or `Staff`.
+
+**Make sure:**
+- The appointments app is listed before accounts in `INSTALLED_APPS` if there are circular import issues.
+- You import the signals in your `apps.py` or `__init__.py` of the accounts app to ensure they are registered.
+
+Let me know if you want this as a separate `signals.py` file or need help with admin integration!
+
+linetgitonga: I need a script to enter dummy reasonable data
+
+GitHub Copilot: Here is a Django management command script to generate **dummy users** (patients, CHVs, clinicians, specialists, admins) and automatically create corresponding `Client` and `Staff` records, thanks to your signal.
+
+Save this as `populate_dummy_data.py` in your `accounts/management/commands/` directory (create the folders if they don't exist):
+
+````python
+from django.core.management.base import BaseCommand
+from django.utils import timezone
+from accounts.models import User
+import random
+
+COUNTIES = ["Nairobi", "Mombasa", "Kisumu", "Kericho", "Nakuru"]
+SPECIALIZATIONS = ["General", "Gynecology", "Oncology", "Pediatrics", "Radiology"]
+
+def random_phone():
+    return f"+2547{random.randint(10000000, 99999999)}"
+
+class Command(BaseCommand):
+    help = "Populate the database with dummy users (patients, staff, etc.)"
+
+    def handle(self, *args, **kwargs):
+        # Create dummy patients
+        for i in range(10):
+            User.objects.create_user(
+                email=f"patient{i}@example.com",
+                username=f"patient{i}",
+                password="testpass123",
+                user_type="PATIENT",
+                first_name=f"Patient{i}",
+                last_name="Test",
+                phone_number=random_phone(),
+                county=random.choice(COUNTIES),
+                date_of_birth=timezone.now().date().replace(year=1990 + i),
+                is_verified=True,
+            )
+
+        # Create dummy CHVs
+        for i in range(3):
+            User.objects.create_user(
+                email=f"chv{i}@example.com",
+                username=f"chv{i}",
+                password="testpass123",
+                user_type="CHV",
+                first_name=f"CHV{i}",
+                last_name="Volunteer",
+                phone_number=random_phone(),
+                county=random.choice(COUNTIES),
+                specialization="General",
+                is_verified=True,
+            )
+
+        # Create dummy clinicians
+        for i in range(3):
+            User.objects.create_user(
+                email=f"clinician{i}@example.com",
+                username=f"clinician{i}",
+                password="testpass123",
+                user_type="CLINICIAN",
+                first_name=f"Clinician{i}",
+                last_name="Medic",
+                phone_number=random_phone(),
+                county=random.choice(COUNTIES),
+                specialization=random.choice(SPECIALIZATIONS),
+                is_verified=True,
+            )
+
+        # Create dummy specialists
+        for i in range(3):
+            User.objects.create_user(
+                email=f"specialist{i}@example.com",
+                username=f"specialist{i}",
+                password="testpass123",
+                user_type="SPECIALIST",
+                first_name=f"Specialist{i}",
+                last_name="Expert",
+                phone_number=random_phone(),
+                county=random.choice(COUNTIES),
+                specialization=random.choice(SPECIALIZATIONS),
+                is_verified=True,
+            )
+
+        # Create an admin
+        User.objects.create_superuser(
+            email="admin@example.com",
+            username="admin",
+            password="adminpass123",
+            user_type="ADMIN",
+            first_name="Admin",
+            last_name="User",
+            phone_number=random_phone(),
+            county="Nairobi",
+            is_verified=True,
+        )
+
+        self.stdout.write(self.style.SUCCESS("Dummy users created successfully!"))
+````
+
+**How to use:**
+1. Place the script as shown above.
+2. Run:  
+   ```
+   python manage.py populate_dummy_data
+   ```
+3. This will create users and, via your signals, also create `Client` and `Staff` records as appropriate.
+
+Let me know if you want dummy data for other models or more fields!
+
+linetgitonga: I need a script to enter appointment  reasonable data
+
+GitHub Copilot: Here is a Django management command script to generate **dummy appointments** with random but reasonable data, using your existing `Client`, `Staff`, and `Service` models.
+
+Save this as `populate_dummy_appointments.py` in your `appointments/management/commands/` directory (create the folders if they don't exist):
+
+````python
+from django.core.management.base import BaseCommand
+from django.utils import timezone
+from appointments.models import Appointment, Client, Staff, Service
+import random
+import datetime
+
+class Command(BaseCommand):
+    help = "Populate the database with dummy appointments"
+
+    def handle(self, *args, **kwargs):
+        clients = list(Client.objects.all())
+        staff_members = list(Staff.objects.all())
+        services = list(Service.objects.filter(is_active=True))
+
+        if not clients or not staff_members or not services:
+            self.stdout.write(self.style.ERROR("You need clients, staff, and services in the database first!"))
+            return
+
+        status_choices = [choice[0] for choice in Appointment.STATUS_CHOICES]
+        today = timezone.now().date()
+
+        for i in range(20):
+            client = random.choice(clients)
+            staff = random.choice(staff_members)
+            service = random.choice(services)
+            # Appointments within +/- 15 days from today
+            appointment_date = today + datetime.timedelta(days=random.randint(-15, 15))
+            # Random time between 8am and 5pm
+            appointment_time = datetime.time(hour=random.randint(8, 17), minute=random.choice([0, 15, 30, 45]))
+            status = random.choice(status_choices)
+            notes = f"Auto-generated appointment {i+1}"
+            internal_notes = "N/A"
+            reminder_sent = random.choice([True, False])
+
+            # Avoid duplicate (staff, date, time)
+            if Appointment.objects.filter(staff=staff, appointment_date=appointment_date, appointment_time=appointment_time).exists():
+                continue
+
+            Appointment.objects.create(
+                client=client,
+                staff=staff,
+                service=service,
+                appointment_date=appointment_date,
+                appointment_time=appointment_time,
+                status=status,
+                notes=notes,
+                internal_notes=internal_notes,
+                reminder_sent=reminder_sent,
+            )
+
+        self.stdout.write(self.style.SUCCESS("Dummy appointments created successfully!"))
+````
+
+**How to use:**
+1. Place the script as shown above.
+2. Run:
+   ```
+   python manage.py populate_dummy_appointments
+   ```
+3. This will create 20 random appointments, as long as you have clients, staff, and services in your database.
+
+Let me know if you want to generate feedback or appointment history as well!
+
+linetgitonga: python manage.py add_users
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request   
+    raise new_e
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request   
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn 
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(    
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket      
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\ssl.py", line 455, in wrap_socket      
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\ssl.py", line 1372, in do_handshake    
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request   
+    raise new_e
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request   
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn 
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(    
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket      
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\ssl.py", line 1372, in do_handshake    
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\manage.py", line 22, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)     
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^     
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 416, in run_from_argv
+    self.execute(*args, **cmd_options)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 457, in execute    
+    self.check(**check_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 492, in check      
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\registry.py", line 89, in run_checks  
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\checks\urls.py", line 26, in check_resolver  
+    return check_method()
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 531, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)    
+                                         ~~~~~~~~~^^^^^^^^^^    
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 718, in url_patterns     
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)    
+                                         ~~~~~~~~~^^^^^^^^^^    
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\resolvers.py", line 711, in urlconf_module   
+    return import_module(self.urlconf_name)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level) 
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\urls.py", line 20, in <module>
+    path("api/chatbot/", include("chatbot.urls")),
+                         ~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level) 
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\urls.py", line 2, in <module>
+    from .views import ChatbotAPIView
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 35, in <module>
+    faiss_index = load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 30, in load_data_and_build_index
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 44, in get_azure_embedding      
+    response = requests.post(url, headers=headers, json=payload)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs) 
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)    
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+GitHub Copilot: Your error:
+```
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', ...)
+```
+means that **your script is trying to make an external HTTPS request and the remote server is closing the connection**. This is not related to your user creation script, but rather to code that runs at import time—most likely your chatbot's FAISS/embedding code.
+
+### Why is this happening?
+- When you run `python manage.py add_users`, Django loads **all apps** and their code.
+- Your views.py (or similar) is running code at the module level that tries to call the Azure embedding API (to build the FAISS index).
+- If your internet is down, the endpoint is wrong, or your Azure key is wrong, this will cause a crash—even if you just want to add users.
+
+---
+
+## **How to Fix**
+
+### 1. **Delay FAISS/embedding index building until needed**
+
+**Move this code:**
+```python
+faiss_index = load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+```
+**from the module level to inside your chatbot view or a function** so it only runs when the chatbot endpoint is called, not on every Django startup.
+
+#### Example:
+```python
+# chatbot/views.py
+
+def get_faiss_index():
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+
+class ChatbotAPIView(APIView):
+    def post(self, request):
+        faiss_index = get_faiss_index()
+        ...
+```
+
+---
+
+### 2. **(Optional) Catch and log errors in your embedding code**
+
+Wrap your embedding/index code in try/except so it doesn't crash the whole app if Azure is unreachable.
+
+---
+
+### 3. **Test your user script again**
+
+After moving the FAISS/index code out of the module level, running `python manage.py add_users` should work without trying to connect to Azure.
+
+---
+
+**Summary:**  
+- Do not run external API calls at the module level in Django apps.
+- Only build your FAISS index when you actually need it (e.g., when the chatbot endpoint is called).
+
+Let me know if you want a code sample for lazy-loading the FAISS index!
+
+linetgitonga: generate a script to enter important services , data .
+
+GitHub Copilot: Here is a Django management command script to populate your `Service` table with important and realistic services for a healthcare setting.  
+You can expand or modify the list as needed.
+
+**Save this as**  
+`appointments/management/commands/populate_services.py`  
+(create the folders if they don't exist):
+
+````python
+from django.core.management.base import BaseCommand
+from appointments.models import Service
+
+SERVICES = [
+    {
+        "name": "Initial Consultation",
+        "description": "First-time patient consultation with a clinician.",
+        "duration": 30,
+        "price": 1000.00,
+    },
+    {
+        "name": "Follow-up Visit",
+        "description": "Follow-up appointment to review patient progress.",
+        "duration": 20,
+        "price": 800.00,
+    },
+    {
+        "name": "Pap Smear",
+        "description": "Screening procedure for cervical cancer.",
+        "duration": 20,
+        "price": 1500.00,
+    },
+    {
+        "name": "Pelvic Ultrasound",
+        "description": "Imaging of pelvic organs.",
+        "duration": 40,
+        "price": 3500.00,
+    },
+    {
+        "name": "CA-125 Blood Test",
+        "description": "Blood test for ovarian cancer marker.",
+        "duration": 15,
+        "price": 2000.00,
+    },
+    {
+        "name": "Ovarian Cystectomy",
+        "description": "Surgical removal of ovarian cyst.",
+        "duration": 120,
+        "price": 20000.00,
+    },
+    {
+        "name": "Pain Management",
+        "description": "Consultation and prescription for pain relief.",
+        "duration": 15,
+        "price": 700.00,
+    },
+    {
+        "name": "Urinalysis",
+        "description": "Lab test for urine analysis.",
+        "duration": 10,
+        "price": 500.00,
+    },
+    {
+        "name": "FBC (Full Blood Count)",
+        "description": "Comprehensive blood test.",
+        "duration": 10,
+        "price": 1200.00,
+    },
+    {
+        "name": "Referral Specialist Visit",
+        "description": "Consultation with a specialist upon referral.",
+        "duration": 30,
+        "price": 2500.00,
+    },
+]
+
+class Command(BaseCommand):
+    help = "Populate the Service table with important healthcare services"
+
+    def handle(self, *args, **kwargs):
+        for service in SERVICES:
+            obj, created = Service.objects.get_or_create(
+                name=service["name"],
+                defaults={
+                    "description": service["description"],
+                    "duration": service["duration"],
+                    "price": service["price"],
+                    "is_active": True,
+                }
+            )
+            if created:
+                self.stdout.write(self.style.SUCCESS(f"Added service: {obj.name}"))
+            else:
+                self.stdout.write(self.style.WARNING(f"Service already exists: {obj.name}"))
+        self.stdout.write(self.style.SUCCESS("Service population complete."))
+````
+
+**How to use:**
+1. Place the script as shown above.
+2. Run:
+   ```
+   python manage.py populate_services
+   ```
+3. Your `Service` table will be filled with important services.
+
+Let me know if you want to add more fields or need a script for other models!
+
+linetgitonga: GENERATE THE DATA FOR APPOINTMENTS HISTORY 
+
+GitHub Copilot: Here is a Django management command script to generate **dummy appointment history data** for your `AppointmentHistory` model.  
+This script will randomly pick appointments and simulate status changes, assigning a random user as the one who made the change.
+
+Save this as `populate_appointment_history.py` in your `appointments/management/commands/` directory:
+
+````python
+from django.core.management.base import BaseCommand
+from django.utils import timezone
+from appointments.models import Appointment, AppointmentHistory
+from accounts.models import User
+import random
+
+STATUS_FLOW = [
+    ('scheduled', 'confirmed'),
+    ('confirmed', 'in_progress'),
+    ('in_progress', 'completed'),
+    ('scheduled', 'cancelled'),
+    ('confirmed', 'cancelled'),
+    ('scheduled', 'no_show'),
+]
+
+class Command(BaseCommand):
+    help = "Populate the database with dummy appointment history records"
+
+    def handle(self, *args, **kwargs):
+        users = list(User.objects.all())
+        appointments = list(Appointment.objects.all())
+        if not users or not appointments:
+            self.stdout.write(self.style.ERROR("You need users and appointments in the database first!"))
+            return
+
+        count = 0
+        for appointment in appointments:
+            # Simulate 1-3 status changes per appointment
+            num_changes = random.randint(1, 3)
+            current_status = appointment.status
+            for _ in range(num_changes):
+                # Pick a possible status transition
+                possible_flows = [flow for flow in STATUS_FLOW if flow[0] == current_status]
+                if not possible_flows:
+                    break
+                flow = random.choice(possible_flows)
+                previous_status, new_status = flow
+                changed_by = random.choice(users)
+                notes = f"Status changed from {previous_status} to {new_status} by {changed_by.get_full_name()}"
+                AppointmentHistory.objects.create(
+                    appointment=appointment,
+                    previous_status=previous_status,
+                    new_status=new_status,
+                    changed_by=changed_by,
+                    changed_at=timezone.now(),
+                    notes=notes,
+                )
+                current_status = new_status
+                count += 1
+
+        self.stdout.write(self.style.SUCCESS(f"Dummy appointment history records created: {count}"))
+````
+
+**How to use:**
+1. Place the script as shown above.
+2. Run:
+   ```
+   python manage.py populate_appointment_history
+   ```
+3. This will create random appointment history records for your existing appointments.
+
+Let me know if you want to customize the transitions or add more details!
+
+linetgitonga: link the patients with the users
+
+GitHub Copilot: To **link your `Patient` model with your `User` model** (so each patient record is associated with a user account), add a `OneToOneField` or `ForeignKey` from `Patient` to `User`.  
+This is common if you want each patient to have a login or user profile.
+
+### Recommended: Use a OneToOneField
+
+This ensures each patient is linked to exactly one user (and vice versa):
+
+````python
+class Patient(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='patient_profile', null=True, blank=True)
+    # Personal Information
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    date_of_birth = models.DateField()
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField(blank=True, null=True)
+    national_id = models.CharField(max_length=20, unique=True)
+    # ...rest of your fields...
+````
+
+- `null=True, blank=True` allows you to create Patient records without a user (optional).
+- `related_name='patient_profile'` lets you access the patient from the user: `user.patient_profile`.
+
+---
+
+### How to Use
+
+- When registering a patient user, create both a `User` and a `Patient` and link them:
+    ```python
+    user = User.objects.create_user(...)
+    patient = Patient.objects.create(user=user, first_name=..., ...)
+    ```
+
+---
+
+**Remember:**  
+- Run `python manage.py makemigrations` and `python manage.py migrate` after this change.
+
+Let me know if you want a signal to auto-create a `Patient` when a user with `user_type="PATIENT"` is created!
+
+linetgitonga:  python manage.py createsuperuser
+Email: linetgitonga55@gmail.com
+Username: linet
+User type: administrator
+Error: Value 'administrator' is not a valid choice.
+User type: ADMIN
+Password: 
+Password (again):
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\manage.py", line 22, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^    
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 416, in run_from_argv
+    self.execute(*args, **cmd_options)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\management\commands\createsuperuser.py", line 90, in execute
+    return super().execute(*args, **options)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 460, in execute  
+    output = self.handle(*args, **options)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\management\commands\createsuperuser.py", line 239, in handle
+    self.UserModel._default_manager.db_manager(database).create_superuser(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        **user_data
+        ^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\models.py", line 195, in create_superuser
+    return self._create_user(username, email, password, **extra_fields)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\models.py", line 163, in _create_user
+    user.save(using=self._db)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save    
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base     
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send      
+    response = receiver(signal=self, sender=sender, **named)   
+TypeError: create_related_profile() missing 1 required positional argument: '_sender'
+(ProjectsVenv) 
+
+GitHub Copilot: Your error:
+```
+TypeError: create_related_profile() missing 1 required positional argument: '_sender'
+```
+is because your signal handler for `post_save` on `User` has the wrong argument name.  
+Django expects the first argument to be called `sender`, not `_sender`.
+
+---
+
+## **How to Fix**
+
+**Change this:**
+```python
+@receiver(post_save, sender=User)
+def create_related_profile(_sender, instance, created, **_kwargs):
+    ...
+```
+
+**To this:**
+```python
+@receiver(post_save, sender=User)
+def create_related_profile(sender, instance, created, **kwargs):
+    ...
+```
+
+- The first argument must be `sender` (not `_sender`).
+- The kwargs should be `**kwargs` (not `**_kwargs`).
+
+---
+
+**After this change, run:**
+```
+python manage.py createsuperuser
+```
+again and it will work.
+
+---
+
+**Summary:**  
+Always use the correct signal signature:
+```python
+def handler(sender, instance, created, **kwargs):
+```
+
+Let me know if you need the full corrected code!
+
+linetgitonga: python manage.py add_users
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute    
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: accounts_user.email
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\manage.py", line 22, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^    
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 416, in run_from_argv
+    self.execute(*args, **cmd_options)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\management\base.py", line 460, in execute  
+    output = self.handle(*args, **options)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\accounts\management\commands\add_users.py", line 32, in handle
+    User.objects.create_user(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        email=f"{last_name.lower()}{i}@example.com",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        is_verified=True,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\models.py", line 175, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\models.py", line 163, in _create_user
+    user.save(using=self._db)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save    
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base     
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table   
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert    
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs) 
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^ 
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert      
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute     
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute      
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute        
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        
+    )
+    ^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute    
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute    
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: accounts_user.email
+
+GitHub Copilot: Your error:
+```
+django.db.utils.IntegrityError: UNIQUE constraint failed: accounts_user.email
+```
+means you are trying to create a user with an email that **already exists** in the database. This happens if you run the script multiple times or if your dummy data overlaps with real data.
+
+---
+
+## **How to Fix**
+
+**Use `get_or_create` instead of `create_user`** to avoid duplicates, or check if the user exists before creating.
+
+### Example Fix for Your Script
+
+Replace:
+```python
+User.objects.create_user(
+    email=...,
+    username=...,
+    ...
+)
+```
+with:
+```python
+User.objects.get_or_create(
+    email=...,
+    defaults={
+        "username": ...,
+        "password": "testpass123",
+        "user_type": ...,
+        "first_name": ...,
+        "last_name": ...,
+        "phone_number": ...,
+        "county": ...,
+        "date_of_birth": ...,
+        "specialization": ...,
+        "is_verified": True,
+    }
+)
+```
+- Only include fields relevant for each user type in `defaults`.
+- For superuser, you may want to check existence before creating.
+
+---
+
+### Example for Patients
+
+````python
+for i in range(40):
+    last_name = PATIENT_LAST_NAMES[i % len(PATIENT_LAST_NAMES)]
+    email = f"{last_name.lower()}{i}@example.com"
+    User.objects.get_or_create(
+        email=email,
+        defaults={
+            "username": f"{last_name.lower()}{i}",
+            "password": "testpass123",
+            "user_type": "PATIENT",
+            "first_name": PATIENT_FIRST_NAMES[i % len(PATIENT_FIRST_NAMES)],
+            "last_name": last_name,
+            "phone_number": random_phone(),
+            "county": random.choice(COUNTIES),
+            "date_of_birth": timezone.now().date().replace(year=1990 + i),
+            "is_verified": True,
+        }
+    )
+````
+
+---
+
+**Summary:**  
+- Use `get_or_create` to avoid duplicate email errors.
+- This will skip users that already exist and only create new ones.
+
+Let me know if you want the full script updated!
+
+linetgitonga: no such table: payments_payment
+Request Method:	POST
+Request URL:	http://127.0.0.1:8000/admin/accounts/user/
+Django Version:	5.2.3
+Exception Type:	OperationalError
+Exception Value:	
+no such table: payments_payment
+Exception Location:	C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\sqlite3\base.py, line 360, in execute
+Raised during:	django.contrib.admin.options.changelist_view
+Python Executable:	C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Scripts\python.exe
+Python Version:	3.13.3
+Python Path:	
+['C:\\Users\\LINET\\Desktop\\PROJECTS\\MAMASCAN\\MAMASCAN_BACKEND',
+ 'C:\\Python313\\python313.zip',
+ 'C:\\Python313\\DLLs',
+ 'C:\\Python313\\Lib',
+ 'C:\\Python313',
+ 'C:\\Users\\LINET\\Desktop\\PROJECTS\\ProjectsVenv',
+ 'C:\\Users\\LINET\\Desktop\\PROJECTS\\ProjectsVenv\\Lib\\site-packages']
+Server time:	Mon, 07 Jul 2025 21:53:13 +0300
+
+GitHub Copilot: Your error:
+
+```
+no such table: payments_payment
+```
+
+means that Django is trying to access the `payments_payment` table, but it does **not exist** in your database. This usually happens when:
+
+- You have a payments app with a `Payment` model.
+- You have not run migrations after creating or modifying the model.
+- You may have deleted the database table manually or switched databases.
+
+---
+
+## **How to Fix**
+
+1. **Make sure the payments app is in your `INSTALLED_APPS` in `settings.py`.**
+
+2. **Run migrations for all apps:**
+
+   Open your terminal and run:
+   ```
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+   This will create the missing `payments_payment` table (and any others that are missing).
+
+3. **If you still get the error, check for migration errors in the output.**
+
+---
+
+**Summary:**  
+- This is a database schema issue, not a code bug.
+- Run your migrations to create the missing table.
+
+Let me know if you see any migration errors or need help with a specific migration!
+
+linetgitonga: python manage.py migrate
+Operations to perform:
+  Apply all migrations: accounts, admin, analytics, appointments, auth, contenttypes, screening, sessions
+Running migrations:
+  No migrations to apply.
+(ProjectsVenv) OperationalError at /admin/accounts/user/
+no such table: payments_payment
+Request Method:	POST
+Request URL:	http://127.0.0.1:8000/admin/accounts/user/
+Django Version:	5.2.3
+Exception Type:	OperationalError
+Exception Value:	
+no such table: payments_payment
+Exception Location:	C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\db\backends\sqlite3\base.py, line 360, in execute
+Raised during:	django.contrib.admin.options.changelist_view
+Python Executable:	C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Scripts\python.exe
+Python Version:	3.13.3
+Python Path:	
+['C:\\Users\\LINET\\Desktop\\PROJECTS\\MAMASCAN\\MAMASCAN_BACKEND',
+ 'C:\\Python313\\python313.zip',
+ 'C:\\Python313\\DLLs',
+ 'C:\\Python313\\Lib',
+ 'C:\\Python313',
+ 'C:\\Users\\LINET\\Desktop\\PROJECTS\\ProjectsVenv',
+
+GitHub Copilot: Your error means that Django cannot find the `payments_payment` table in your database, but **your payments app is not listed in the migrations output**. This means Django does not know about your payments app.
+
+---
+
+## **How to Fix**
+
+1. **Add payments to `INSTALLED_APPS`**
+
+Open your `settings.py` and make sure you have:
+```python
+INSTALLED_APPS = [
+    # ... other apps ...
+    'payments',
+    # ... other apps ...
+]
+```
+
+2. **Make Migrations for Payments**
+
+In your terminal, run:
+```
+python manage.py makemigrations payments
+```
+
+3. **Apply Migrations**
+
+Then run:
+```
+python manage.py migrate
+```
+
+---
+
+**After this, the `payments_payment` table will be created and the error will be resolved.**
+
+---
+
+**Summary:**  
+- Add `'payments'` to `INSTALLED_APPS`
+- Run `makemigrations payments`
+- Run `migrate`
+
+Let me know if you need help with any of these steps!
+
+linetgitonga: ITS ALREADY THERE
+
+GitHub Copilot: You are correct—`'payments'` **is already in your `INSTALLED_APPS`**.
+
+However, your error and the output from `python manage.py migrate`:
+```
+Running migrations:
+  No migrations to apply.
+```
+means **Django does not see any migrations for the payments app**.
+
+---
+
+## **How to Fix**
+
+1. **Check for a `migrations` folder in your payments app.**
+
+   - You should have:  
+     ```
+     payments/
+         migrations/
+             __init__.py
+     ```
+   - If the `migrations` folder or `__init__.py` is missing, create them.
+
+2. **Make migrations for the `payments` app:**
+
+   In your terminal, run:
+   ```
+   python manage.py makemigrations payments
+   ```
+
+   You should see output like:
+   ```
+   Migrations for 'payments':
+     payments/migrations/0001_initial.py
+       - Create model Payment
+       - Create model Transaction
+       - Create model Service
+       - Create model MpesaPayment
+   ```
+
+3. **Apply the migrations:**
+   ```
+   python manage.py migrate
+   ```
+
+---
+
+### **Why did this happen?**
+- If you add a new app or new models and never run `makemigrations`, Django won't create the migration files, so `migrate` does nothing.
+- If you delete the migrations folder or files, Django also won't see any migrations to apply.
+
+---
+
+**Summary:**  
+- `'payments'` is in your `INSTALLED_APPS`, but you must run `makemigrations payments` to generate the migration files, then `migrate` to create the tables.
+
+Let me know if you see any errors during these steps!---
+
+### **Why did this happen?**
+- If you add a new app or new models and never run `makemigrations`, Django won't create the migration files, so `migrate` does nothing.
+- If you delete the migrations folder or files, Django also won't see any migrations to apply.
+
+---
+
+**Summary:**  
+- `'payments'` is in your `INSTALLED_APPS`, but you must run `makemigrations payments` to generate the migration files, then `migrate` to create the tables.
+
+Let me know if you see any errors during these steps!
+
+linetgitonga: GENERATE A LIST OF THE ENDPOINT WITH NECESSARY INPUTS AND OUTPUT 
+
+GitHub Copilot: Here is a list of your main API endpoints, their **required inputs**, and **expected outputs** based on your Django project structure and the files you provided:
+
+---
+
+## 1. **User Endpoints (accounts app)**
+
+### `/api/accounts/register/`  
+**POST**  
+**Input:**  
+```json
+{
+  "email": "user@example.com",
+  "username": "user123",
+  "password": "yourpassword",
+  "user_type": "PATIENT",  // or "CHV", "CLINICIAN", "SPECIALIST", "ADMIN"
+  "first_name": "John",
+  "last_name": "Doe",
+  "phone_number": "+254712345678",
+  "county": "Nairobi",
+  "date_of_birth": "1990-01-01"
+}
+```
+**Output:**  
+```json
+{
+  "id": 1,
+  "email": "user@example.com",
+  "user_type": "PATIENT",
+  "first_name": "John",
+  "last_name": "Doe",
+  ...
+}
+```
+
+---
+
+## 2. **Authentication Endpoints**
+
+### `/api/token/`  
+**POST**  
+**Input:**  
+```json
+{
+  "email": "user@example.com",
+  "password": "yourpassword"
+}
+```
+**Output:**  
+```json
+{
+  "refresh": "jwt-refresh-token",
+  "access": "jwt-access-token"
+}
+```
+
+---
+
+## 3. **Patient Endpoints (screening app)**
+
+### `/api/patients/`  
+**GET**  
+**Output:**  
+```json
+[
+  {
+    "id": 1,
+    "user": 1,
+    "first_name": "John",
+    "last_name": "Doe",
+    "date_of_birth": "1990-01-01",
+    "phone_number": "+254712345678",
+    "email": "user@example.com",
+    "national_id": "temp-1",
+    "county": "Nairobi",
+    "sub_county": "Westlands",
+    ...
+  }
+]
+```
+
+### `/api/patients/`  
+**POST**  
+**Input:**  
+```json
+{
+  "user": 1,
+  "first_name": "John",
+  "last_name": "Doe",
+  "date_of_birth": "1990-01-01",
+  "phone_number": "+254712345678",
+  "email": "user@example.com",
+  "national_id": "12345678",
+  "county": "Nairobi",
+  "sub_county": "Westlands"
+}
+```
+**Output:**  
+```json
+{
+  "id": 1,
+  ...
+}
+```
+
+---
+
+## 4. **Screening Record Endpoints**
+
+### `/api/screenings/`  
+**POST**  
+**Input:**  
+```json
+{
+  "patient": 1,
+  "screened_by": 2,
+  "screening_date": "2025-07-07",
+  "age_at_first_intercourse": 18,
+  "parity": 2,
+  ...
+}
+```
+**Output:**  
+```json
+{
+  "id": 1,
+  "patient": 1,
+  "screened_by": 2,
+  ...
+}
+```
+
+---
+
+## 5. **Appointments Endpoints**
+
+### `/api/appointments/`  
+**GET**  
+**Output:**  
+```json
+[
+  {
+    "id": "uuid",
+    "client": 1,
+    "staff": 2,
+    "service": 1,
+    "appointment_date": "2025-07-07",
+    "appointment_time": "10:00:00",
+    "status": "scheduled",
+    ...
+  }
+]
+```
+
+### `/api/appointments/create/`  
+**POST**  
+**Input:**  
+```json
+{
+  "client": 1,
+  "staff": 2,
+  "service": 1,
+  "appointment_date": "2025-07-07",
+  "appointment_time": "10:00:00",
+  "notes": "First visit"
+}
+```
+**Output:**  
+```json
+{
+  "id": "uuid",
+  ...
+}
+```
+
+---
+
+## 6. **Payments Endpoints**
+
+### `/api/payments/initiate-payment/`  
+**POST**  
+**Input:**  
+```json
+{
+  "user": 1,
+  "amount": 1500.00,
+  "service": 2
+}
+```
+**Output:**  
+```json
+{
+  "payment_id": 1,
+  "status": "PENDING",
+  "amount": 1500.00
+}
+```
+
+### `/api/payments/payment-status/<transaction_id>/`  
+**GET**  
+**Output:**  
+```json
+{
+  "transaction_id": "TX12345",
+  "status": "COMPLETED",
+  "amount": 1500.00
+}
+```
+
+---
+
+## 7. **Chatbot Endpoint**
+
+### `/api/chatbot/chat/`  
+**POST**  
+**Input:**  
+```json
+{
+  "query": "What are the symptoms of cervical cancer?"
+}
+```
+**Output:**  
+```json
+{
+  "answer": "Common symptoms of cervical cancer include..."
+}
+```
+
+---
+
+**Note:**  
+- The actual URLs may vary depending on your urls.py structure.
+- Some endpoints may require authentication (`Authorization: Bearer <token>` header).
+- The output fields may include more or fewer fields depending on your serializers.
+
+Let me know if you want the endpoints for a specific app, or with more/less detail!
+
+linetgitonga: apis FOR THE SCREENING APPWITH INPUTS AND OUTPUTS
+
+GitHub Copilot: Here are **example API endpoints for your Screening app** with their expected **inputs and outputs** based on your models and serializers:
+
+---
+
+## 1. **List/Create Patients**
+### `GET /api/screening/patients/`
+**Output:**
+```json
+[
+  {
+    "id": 1,
+    "user": 5,
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "date_of_birth": "1995-05-10",
+    "phone_number": "+254712345678",
+    "email": "jane@example.com",
+    "national_id": "12345678",
+    "county": "Nairobi",
+    "sub_county": "Westlands",
+    "location": "Westlands, Nairobi",
+    "marital_status": "SINGLE",
+    "registered_by": 2,
+    "created_at": "2025-07-08T10:00:00Z",
+    "updated_at": "2025-07-08T10:00:00Z",
+    "age": 30
+  }
+]
+```
+
+### `POST /api/screening/patients/`
+**Input:**
+```json
+{
+  "user": 5,
+  "first_name": "Jane",
+  "last_name": "Doe",
+  "date_of_birth": "1995-05-10",
+  "phone_number": "+254712345678",
+  "email": "jane@example.com",
+  "national_id": "12345678",
+  "county": "Nairobi",
+  "sub_county": "Westlands",
+  "location": "Westlands, Nairobi",
+  "marital_status": "SINGLE"
+}
+```
+**Output:** (created patient)
+```json
+{
+  "id": 1,
+  "user": 5,
+  ...
+}
+```
+
+---
+
+## 2. **List/Create Screening Records**
+### `GET /api/screening/records/`
+**Output:**
+```json
+[
+  {
+    "id": 1,
+    "patient": 1,
+    "screened_by": 2,
+    "screening_date": "2025-07-08T10:00:00Z",
+    "age_at_first_intercourse": 18,
+    "number_of_sexual_partners": 1,
+    "parity": 2,
+    "hiv_status": "NEGATIVE",
+    "hpv_vaccination_status": "VACCINATED",
+    "contraceptive_use": "NONE",
+    "smoking_status": "NEVER",
+    "family_history_cervical_cancer": false,
+    "previous_abnormal_pap": false,
+    "last_screening_date": null,
+    "via_result": "NEGATIVE",
+    "bethesda_category": "NILM",
+    "cytology_image": null,
+    "ai_risk_score": 0.12,
+    "risk_level": "LOW",
+    "ai_confidence": 0.95,
+    "recommended_action": "Routine screening in 3 years.",
+    "follow_up_date": null,
+    "referral_needed": false,
+    "referral_facility": "",
+    "clinical_notes": "",
+    "offline_sync_status": false,
+    "created_at": "2025-07-08T10:00:00Z",
+    "updated_at": "2025-07-08T10:00:00Z",
+    "patient_details": {...},
+    "screened_by_details": {...}
+  }
+]
+```
+
+### `POST /api/screening/records/`
+**Input:**
+```json
+{
+  "patient": 1,
+  "age_at_first_intercourse": 18,
+  "number_of_sexual_partners": 1,
+  "parity": 2,
+  "hiv_status": "NEGATIVE",
+  "hpv_vaccination_status": "VACCINATED",
+  "contraceptive_use": "NONE",
+  "smoking_status": "NEVER",
+  "family_history_cervical_cancer": false,
+  "previous_abnormal_pap": false,
+  "last_screening_date": null,
+  "via_result": "NEGATIVE",
+  "bethesda_category": "NILM",
+  "clinical_notes": ""
+}
+```
+**Output:** (created record)
+```json
+{
+  "id": 1,
+  "patient": 1,
+  ...
+}
+```
+
+---
+
+## 3. **List/Create Screening Follow-Ups**
+### `GET /api/screening/followups/`
+**Output:**
+```json
+[
+  {
+    "id": 1,
+    "screening_record": 1,
+    "follow_up_date": "2025-08-08",
+    "status": "PENDING",
+    "notes": "",
+    "contacted_by": 2,
+    "contact_method": "PHONE",
+    "created_at": "2025-07-08T10:00:00Z",
+    "updated_at": "2025-07-08T10:00:00Z",
+    "contacted_by_details": {...},
+    "patient_name": "Jane"
+  }
+]
+```
+
+### `POST /api/screening/followups/`
+**Input:**
+```json
+{
+  "screening_record": 1,
+  "follow_up_date": "2025-08-08",
+  "status": "PENDING",
+  "notes": "",
+  "contact_method": "PHONE"
+}
+```
+**Output:** (created follow-up)
+```json
+{
+  "id": 1,
+  ...
+}
+```
+
+---
+
+## 4. **Risk Factor Weights**
+### `GET /api/screening/risk-factors/`
+**Output:**
+```json
+[
+  {
+    "id": 1,
+    "factor_name": "age_at_first_intercourse",
+    "weight": 0.25,
+    "description": "Age at first sexual intercourse",
+    "is_active": true,
+    "created_at": "2025-07-08T10:00:00Z",
+    "updated_at": "2025-07-08T10:00:00Z"
+  }
+]
+```
+
+---
+
+## 5. **AI Risk Prediction (Example)**
+### `POST /api/screening/predict-risk/`
+**Input:**
+```json
+{
+  "age": 30,
+  "age_at_first_intercourse": 18,
+  "number_of_sexual_partners": 1,
+  "parity": 2,
+  "hiv_status": "NEGATIVE",
+  "hpv_vaccination_status": "VACCINATED",
+  "contraceptive_use": "NONE",
+  "smoking_status": "NEVER",
+  "family_history_cervical_cancer": false,
+  "previous_abnormal_pap": false,
+  "via_result": "NEGATIVE",
+  "bethesda_category": "NILM"
+}
+```
+**Output:**
+```json
+{
+  "risk_score": 0.12,
+  "risk_level": "LOW",
+  "confidence": 0.95,
+  "recommended_action": "Routine screening in 3 years.",
+  "follow_up_months": 36,
+  "referral_needed": false,
+  "explanation": [
+    "Low risk factors detected.",
+    "No history of abnormal pap."
+  ]
+}
+```
+
+---
+
+**Note:**  
+- Actual endpoint URLs may vary depending on your `urls.py`.
+- Some endpoints may require authentication.
+- Output fields may include more or fewer fields depending on your serializers and view logic.
+
+Let me know if you want the exact view code or more endpoints!

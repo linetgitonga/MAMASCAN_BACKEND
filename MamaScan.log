@@ -1638,3 +1638,1400 @@ Watching for file changes with StatReloader
 "GET /api/screening/screenings/ HTTP/1.1" 200 4616
 "GET /api/screening/patients/ HTTP/1.1" 200 7312
 "GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /admin/accounts/user/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/accounts/user/ HTTP/1.1" 200 4202
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"POST /admin/login/?next=/admin/accounts/user/ HTTP/1.1" 302 0
+"POST /admin/login/?next=/admin/accounts/user/ HTTP/1.1" 302 0
+"GET /admin/accounts/user/ HTTP/1.1" 200 65863
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 44609
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/riskfactorweight/ HTTP/1.1" 200 16534
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningfollowup/ HTTP/1.1" 200 20316
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 23166
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 4616
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 340
+"POST /api/screening/screenings/ HTTP/1.1" 201 611
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /admin/appointments/staff/ HTTP/1.1" 200 34143
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/staff/30/change/ HTTP/1.1" 200 29237
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+"GET /admin/accounts/user/ HTTP/1.1" 200 65863
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/?o=4.-6 HTTP/1.1" 200 68591
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/?o=3.4.-6 HTTP/1.1" 200 69091
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/?o=3.4.-6&user_type__exact=SPECIALIST HTTP/1.1" 200 27999
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/74/change/?_changelist_filters=o%3D3.4.-6%26user_type__exact%3DSPECIALIST HTTP/1.1" 200 40894
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/user/?o=3.4.-6&user_type__exact=SPECIALIST HTTP/1.1" 200 27999
+"GET /admin/accounts/userprofile/ HTTP/1.1" 200 15807
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/accounts/userprofile/add/ HTTP/1.1" 200 29306
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/staff/ HTTP/1.1" 200 34143
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/staff/30/change/ HTTP/1.1" 200 29237
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"OPTIONS /api/auth/users/?user_type=SPECIALIST HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+Not Found: /api/auth/users/
+"GET /api/auth/users/?user_type=SPECIALIST HTTP/1.1" 404 5921
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+Not Found: /api/auth/users/
+"GET /api/auth/users/?user_type=SPECIALIST HTTP/1.1" 404 5921
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /admin/appointments/staff/30/change/ HTTP/1.1" 200 29237
+Not Found: /
+"GET / HTTP/1.1" 404 3797
+Not Found: /api/auth
+"GET /api/auth HTTP/1.1" 404 3839
+Not Found: /api/auth/
+"GET /api/auth/ HTTP/1.1" 404 5882
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"OPTIONS /api/auth/specialists/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/specialists HTTP/1.1" 301 0
+Unauthorized: /api/auth/specialists/
+"GET /api/auth/specialists/ HTTP/1.1" 401 9908
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 6140
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"OPTIONS /api/screening/predict-risk/ HTTP/1.1" 200 0
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 266
+"POST /api/screening/screenings/ HTTP/1.1" 201 595
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /admin/appointments/appointment/ HTTP/1.1" 200 90617
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 24544
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningrecord/5/change/ HTTP/1.1" 200 44421
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 24544
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 24544
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 24544
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningrecord/4/change/ HTTP/1.1" 200 44432
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"OPTIONS /api/screening/screenings/5/ HTTP/1.1" 200 0
+"PATCH /api/screening/screenings/5/ HTTP/1.1" 200 1506
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 24544
+"GET /admin/screening/screeningrecord/5/change/ HTTP/1.1" 200 44421
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/screeningrecord/5/change/ HTTP/1.1" 200 44421
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /admin/ HTTP/1.1" 200 17735
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3848
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"OPTIONS /api/analytics/ HTTP/1.1" 200 0
+"OPTIONS /api/analytics/ HTTP/1.1" 200 0
+"GET /api/analytics/ HTTP/1.1" 302 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/analytics/ HTTP/1.1" 302 0
+"OPTIONS /accounts/login/?next=/api/analytics/ HTTP/1.1" 200 0
+"OPTIONS /accounts/login/?next=/api/analytics/ HTTP/1.1" 200 0
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/api/analytics/ HTTP/1.1" 404 3881
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/api/analytics/ HTTP/1.1" 404 3881
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/api/analytics/ HTTP/1.1" 404 3881
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/analytics/ HTTP/1.1" 302 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/api/analytics/ HTTP/1.1" 404 3881
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"OPTIONS /api/auth/specialists/ HTTP/1.1" 200 0
+"OPTIONS /api/auth/specialists/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /admin/ HTTP/1.1" 200 17735
+"GET /admin/screening/screeningrecord/ HTTP/1.1" 200 24544
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"GET /admin/screening/screeningrecord/5/change/ HTTP/1.1" 200 44421
+"GET /static/admin/css/forms.css HTTP/1.1" 304 0
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+"GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+"GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+"GET /admin/appointments/appointment/ HTTP/1.1" 200 90617
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/appointments/appointment/76b64372-9416-4563-8c2b-efc5b3d886c7/change/ HTTP/1.1" 200 31096
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+Unauthorized: /api/auth/profile/
+"GET /api/auth/profile/ HTTP/1.1" 401 172
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+Unauthorized: /api/auth/profile/
+"GET /api/auth/profile/ HTTP/1.1" 401 172
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/screenings/ HTTP/1.1" 200 7647
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /api/screening/patients/ HTTP/1.1" 200 7312
+"GET /admin/screening/patient/add/ HTTP/1.1" 200 36520
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/css/forms.css HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+"GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+"GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3848
+"GET /admin/screening/patient/ HTTP/1.1" 200 44609
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /admin/screening/patient/41/change/ HTTP/1.1" 200 36911
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/41/change/ HTTP/1.1" 200 37198
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/41/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 44950
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /admin/screening/patient/40/change/ HTTP/1.1" 200 36914
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/40/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45083
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/39/change/ HTTP/1.1" 200 36906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/39/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45151
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/38/change/ HTTP/1.1" 200 36919
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/38/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45233
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/37/change/ HTTP/1.1" 200 36910
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/37/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45310
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/36/change/ HTTP/1.1" 200 36905
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/36/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45391
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/35/change/ HTTP/1.1" 200 36918
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/35/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45463
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/34/change/ HTTP/1.1" 200 36913
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/34/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45472
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/33/change/ HTTP/1.1" 200 36915
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/33/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45487
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/32/change/ HTTP/1.1" 200 36920
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/32/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45611
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/31/change/ HTTP/1.1" 200 36911
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/31/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45702
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/30/change/ HTTP/1.1" 200 36914
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/30/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45713
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/29/change/ HTTP/1.1" 200 36906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/29/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45843
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/28/change/ HTTP/1.1" 200 36919
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/28/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45927
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/27/change/ HTTP/1.1" 200 36910
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/27/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 45940
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/26/change/ HTTP/1.1" 200 36905
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/26/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 46039
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/25/change/ HTTP/1.1" 200 36918
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/25/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 46171
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/24/change/ HTTP/1.1" 200 36913
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/24/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 46181
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/23/change/ HTTP/1.1" 200 36915
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/23/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 46257
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/22/change/ HTTP/1.1" 200 36920
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/22/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 46271
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/screening/patient/21/change/ HTTP/1.1" 200 36911
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/screening/patient/21/change/ HTTP/1.1" 302 0
+"GET /admin/screening/patient/ HTTP/1.1" 200 46404
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 7796
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 7796
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"OPTIONS /api/screening/predict-risk/ HTTP/1.1" 200 0
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 335
+"POST /api/screening/screenings/ HTTP/1.1" 201 624
+"OPTIONS /api/auth/specialists/ HTTP/1.1" 200 0
+"OPTIONS /api/auth/specialists/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 9358
+"GET /api/screening/screenings/ HTTP/1.1" 200 9358
+"OPTIONS /api/screening/screenings/6/ HTTP/1.1" 200 0
+"PATCH /api/screening/screenings/6/ HTTP/1.1" 200 1575
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+Unauthorized: /api/auth/profile/
+"GET /api/auth/profile/ HTTP/1.1" 401 172
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 9372
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"OPTIONS /api/screening/predict-risk/ HTTP/1.1" 200 0
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 336
+"POST /api/screening/screenings/ HTTP/1.1" 201 620
+"OPTIONS /api/auth/specialists/ HTTP/1.1" 200 0
+"OPTIONS /api/auth/specialists/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/auth/specialists/ HTTP/1.1" 200 2572
+"GET /api/screening/screenings/ HTTP/1.1" 200 10936
+"GET /api/screening/screenings/ HTTP/1.1" 200 10936
+"OPTIONS /api/screening/screenings/7/ HTTP/1.1" 200 0
+"PATCH /api/screening/screenings/7/ HTTP/1.1" 200 1566
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+"POST /api/chatbot/chat/ HTTP/1.1" 200 633
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+Unauthorized: /api/screening/patients/
+"GET /api/screening/patients/ HTTP/1.1" 401 172
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 70, in post
+    faiss_index = get_faiss_index()
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 65, in get_faiss_index
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 28, in load_data_and_build_index
+    text = " | ".join(f"{k}: {v}" for k, v in item.items())
+                                              ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+"POST /api/chatbot/chat/ HTTP/1.1" 500 139587
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 70, in post
+    faiss_index = get_faiss_index()
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 65, in get_faiss_index
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 28, in load_data_and_build_index
+    text = " | ".join(f"{k}: {v}" for k, v in item.items())
+                                              ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+"POST /api/chatbot/chat/ HTTP/1.1" 500 139607
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 58
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 70, in post
+    faiss_index = get_faiss_index()
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 65, in get_faiss_index
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 28, in load_data_and_build_index
+    text = " | ".join(f"{k}: {v}" for k, v in item.items())
+                                              ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+"POST /api/chatbot/chat/ HTTP/1.1" 500 138397
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 70, in post
+    faiss_index = get_faiss_index()
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 65, in get_faiss_index
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 77, in load_data_and_build_index
+    text = " | ".join(f"{k}: {v}" for k, v in item.items())
+                                              ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+"POST /api/chatbot/chat/ HTTP/1.1" 500 139723
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 70, in post
+    faiss_index = get_faiss_index()
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 65, in get_faiss_index
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 77, in load_data_and_build_index
+    text = " | ".join(f"{k}: {v}" for k, v in item.items())
+                                              ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
+"POST /api/chatbot/chat/ HTTP/1.1" 500 139727
+Watching for file changes with StatReloader
+"POST /api/chatbot/chat/ HTTP/1.1" 200 47
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\response.py", line 779, in _error_catcher
+    yield
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\response.py", line 904, in _raw_read
+    data = self._fp_read(amt, read1=read1) if not fp_closed else b""
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\response.py", line 887, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+           ~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\http\client.py", line 479, in read
+    s = self.fp.read(amt)
+  File "C:\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\response.py", line 1091, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\response.py", line 980, in read
+    data = self._raw_read(amt)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\response.py", line 903, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\response.py", line 806, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 70, in post
+    faiss_index = get_faiss_index()
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 65, in get_faiss_index
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 79, in load_data_and_build_index
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 93, in get_azure_embedding
+    response = requests.post(url, headers=headers, json=payload)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 746, in send
+    r.content
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+"POST /api/chatbot/chat/ HTTP/1.1" 500 239700
+"POST /api/chatbot/chat/ HTTP/1.1" 200 402
+"POST /api/chatbot/chat/ HTTP/1.1" 200 1332
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 172
+Unauthorized: /api/chatbot/chat/
+"POST /api/chatbot/chat/ HTTP/1.1" 401 172
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/register HTTP/1.1" 200 0
+Internal Server Error: /api/auth/register
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/auth/register/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+"POST /api/auth/register HTTP/1.1" 500 85429
+"OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+Bad Request: /api/auth/register/
+"POST /api/auth/register/ HTTP/1.1" 400 127
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/chatbot/chat/ HTTP/1.1" 200 47
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"GET /api/auth/profile/ HTTP/1.1" 200 273
+"POST /api/chatbot/chat/ HTTP/1.1" 200 795
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\MamaScan\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"OPTIONS /api/screening/predict-risk/ HTTP/1.1" 200 0
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+Bad Request: /api/auth/login/
+"POST /api/auth/login/ HTTP/1.1" 400 44
+"POST /api/auth/login/ HTTP/1.1" 200 804
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/patients/ HTTP/1.1" 200 0
+"OPTIONS /api/screening/screenings/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 10939
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"OPTIONS /api/screening/predict-risk/ HTTP/1.1" 200 0
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 82
+"OPTIONS /api/chatbot/chat/ HTTP/1.1" 200 0
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 342
+"POST /api/screening/screenings/ HTTP/1.1" 201 605
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 12481
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"POST /api/screening/predict-risk/ HTTP/1.1" 200 345
+Bad Request: /api/screening/screenings/
+"POST /api/screening/screenings/ HTTP/1.1" 400 86
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 12481
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+"GET /api/screening/screenings/ HTTP/1.1" 200 12481
+"GET /api/screening/patients/ HTTP/1.1" 200 7894
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Bad Request: /api/screening/predict-risk/
+"POST /api/screening/predict-risk/ HTTP/1.1" 400 142
+Internal Server Error: /api/chatbot/chat/
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 70, in post
+    faiss_index = get_faiss_index()
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py", line 65, in get_faiss_index
+    return load_data_and_build_index(JSON_PATH, EMBED_ENDPOINT, EMBED_KEY, EMBEDDING_MODEL, INDEX_DIM)
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 79, in load_data_and_build_index
+    embeddings = [get_azure_embedding(text, azure_endpoint, azure_key, embedding_model) for text in texts]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\faiss_utils.py", line 93, in get_azure_embedding
+    response = requests.post(url, headers=headers, json=payload)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\LINET\Desktop\PROJECTS\ProjectsVenv\Lib\site-packages\requests\adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+"POST /api/chatbot/chat/ HTTP/1.1" 500 331130
