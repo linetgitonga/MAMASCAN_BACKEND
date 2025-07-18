@@ -6404,3 +6404,6 @@ TypeError: object of type 'NoneType' has no len()
 "GET /api/auth/profile/ HTTP/1.1" 200 273
 "GET /api/screening/patients/ HTTP/1.1" 200 7812
 "GET /api/screening/screenings/ HTTP/1.1" 200 14045
+C:\Users\LINET\Desktop\PROJECTS\MAMASCAN\MAMASCAN_BACKEND\chatbot\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
