@@ -161,8 +161,10 @@ SIMPLE_JWT = {
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:3001"
     "http://127.0.0.1:3000",
     "https://mama-scan.vercel.app",
+    "https://mamascan-backend.onrender.com"
     "https://mamascan-backend.onrender.com"
 
 ]
